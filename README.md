@@ -1,6 +1,6 @@
 # OptFor-EU_WP1
 
-### The scripts provided in the Historic-CERRA Data section provide code to downloand, resample and crop CERRA  data for use in the OptFor-EU project. See below for more information on each script and visit the OptFor-EU project website (https://optforeu.eu/) for more details on the project.
+### The scripts provided in the Historic-CERRA Data section provide code to download, resample, and crop CERRA data for use in the OptFor-EU project. Please take a look below for more information on each script and visit the OptFor-EU project website (https://optforeu.eu/) for more details on the project.
 
 ### ============================================================
 ### Script for Downloading CERRA climate  variables
@@ -9,7 +9,7 @@
 #### download_[EFMI_climate_variable]_CERRA.R
 ## Description:
 #### This script automates the retrieval of CERRA reanalysis data  for the "EFMI" climate variables. 
-#### The data is requested in 3-hour intervals for years ranging from 1984 to 2021, excluding years for which the data has already been downloaded. 
+#### The data is requested in 3-hour intervals from 1984 to 2021, excluding years for which the data has already been downloaded. 
 #### It:
 #### 1. Sets the CDS API key for user authentication.
 #### 2. Scans the directory containing already downloaded  data to identify years for which data is missing.
@@ -31,7 +31,7 @@
 #### - Ensure the required libraries (`ecmwfr`, `dplyr`) are installed.
 
 ### Instructions:
-#### - Replace placeholder API key and user details with your own.
+#### - Replace the placeholder API key and user details with your own.
 #### - Run the script to fetch and save the data locally.
 
 #### process_[EFMI_climate_variable]_CERRA_to_EURO-CORDEX_1984-2021_MonthlyMean.R
