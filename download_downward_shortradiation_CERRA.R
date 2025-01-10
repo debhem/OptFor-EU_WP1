@@ -29,7 +29,7 @@
 #
 # ============================================================
 ## The downloaded data (output) has the following proprierties:
-# 1. spatial extend : domain spans from northern Africa beyond the northern tip of Scandinavia.
+# 1. spatial extent : domain spans from northern Africa beyond the northern tip of Scandinavia.
 # 2. spatial resolution: 5.5 km x 5.5 km hence a grid box has an area of 30.25km2
 # In the west it ranges far into the Atlantic Ocean and in the east it reaches to the Ural Mountains. Herewith, it covers entire Europe.
 # 3. temporal resolution: 3 hourly time step
