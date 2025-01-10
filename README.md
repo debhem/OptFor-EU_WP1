@@ -11,7 +11,7 @@
 #### This script automates the retrieval of CERRA reanalyses data for climate variables to be used in OptFor-EU. It uses the R programming language with the "ecmwfr" library to download the CERRA climate data. 
 #### The data is requested in 3-hour intervals from 1984 to 2021, excluding years for which the data has already been downloaded. 
 #### It:
-#### 1. Sets the CDS API key for user authentication.
+#### 1. Sets the Copernicus Data Store (CDS) API key for user authentication.
 #### 2. Scans the directory containing already downloaded  data to identify years for which data is missing.
 #### 3. Constructs a data request for each missing year, specifying parameters such as the variable (specific humidity), model level, 3-hourly time steps, and output format.
 #### 4. Sends the requests to the CDS API and saves the downloaded files in a specified folder with filenames reflecting the year and data resolution.
