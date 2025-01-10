@@ -8,7 +8,7 @@
 ### Date: [10/12/2024]
 #### download_[EFMI_climate_variable]_CERRA.R
 ## Description:
-#### This script automates the retrieval of CERRA reanalysis data  for the "EFMI" climate variables. It uses the R programming language with the "ecmwfr" library to download the CERRA climate data. 
+#### This script automates the retrieval of CERRA reanalyses data for climate variables to be used in OptFor-EU. It uses the R programming language with the "ecmwfr" library to download the CERRA climate data. 
 #### The data is requested in 3-hour intervals from 1984 to 2021, excluding years for which the data has already been downloaded. 
 #### It:
 #### 1. Sets the CDS API key for user authentication.
