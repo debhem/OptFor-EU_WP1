@@ -1,6 +1,6 @@
 # OptFor-EU_WP1
 
-### The scripts provided in the Historic-CERRA Data section provide code to download, reprojection, time aggregation(e.g., monthly, seasonal scales), and crop CERRA data for use in the OptFor-EU project. Please take a look below for more information on each script and visit the OptFor-EU project website (https://optforeu.eu/) for more details on the project.
+### The scripts provided in the Historic-CERRA Data section provide code to download, reproject, time aggregate (e.g., monthly, seasonal scales), and crop CERRA data for use in the OptFor-EU project. Please take a look below for more information on each script and visit the OptFor-EU project website (https://optforeu.eu/) for more details on the project.
 
 ### ============================================================
 ### Script for Downloading CERRA climate  variables
