@@ -11,13 +11,13 @@ __Date of code release__: 16th January 2025
 
 +++
 
-## Brief description of each file...
+# Brief description of each script file...
 
-### Scripts for downloading satellite data variables...
+## Scripts for downloading satellite data variables...
 
 __Filename__: Download_Satellite_Global_EFMI-FIRES_2001_2022_Monthly.py
 
-__Description__: Downloads data for EFMI #7 Forest area damaged by fire
+__Description__: Downloads data to calculate EFMI #7 Forest area damaged by fire
 
 __Inputs__: C3S Copernicus burnt area dataset from OLCI, at 300m resolution, monthly for 2017-2022, unitless [presence/absence of fire within cell]
 
@@ -26,7 +26,7 @@ __Outputs__: Files named c3s_pixel_burned_area_v1_1_{year}_monthly.zip
 
 __Filename__: Download_Satellite_EURO-CORDEX_EFMI-SoilCarbon_2015_2024_Daily.py
 
-__Description__: Downloads the data for the EFMI #4.3 Carbon stored in forest soils
+__Description__: Downloads data to calculate EFMI #4.3 Carbon stored in forest soils
 
 __Inputs__: NASA SMAP L4 Global Daily 9 km EASE-Grid Carbon Net Ecosystem Exchange, Version 7, at 9km resolution, daily for 2015-2024, with units gC/m2
 
@@ -35,7 +35,7 @@ __Outputs__: Files named SMAP_L4_C_mdl_{yyymmdd}T000000_Vv7041_001.h5, at 9km re
 
 __Filename__: Download_Satellite_Global_EFMI-ChangeTCD_2012_2015_2018_Annual.py
 
-__Description__: Downloads the data for the EFMI #8 Changes in Tree Cover Density
+__Description__: Downloads data to calculate EFMI #8 Changes in Tree Cover Density
 
 __Inputs__: Sentinel-2 Copernicus High-Resolution Layer Tree Cover Density dataset, at 100m resolution, annually for 2012, 2015 and 2018, with units %
 
@@ -44,14 +44,14 @@ __Outputs__: Files named TCD_{yyyy}_100m_eu_03035_d04_full.tif, at 100m resoluti
 
 __Filename__: Download_Satellite_Global_EFMI-LAI_2014_2024_10-Daily.py
 
-__Description__: Downloads data for EFMI #11 Leaf Area Index
+__Description__: Downloads data to calculate EFMI #11 Leaf Area Index
 
 __Inputs__: Copernicus Global Land Service LAI dataset, at 300m resolution, 10-daily for 2014 to present, globally, unitless. Note that data was used From January 2014 to August 2016 based upon RT5 PROBA-V and to June 2020 based upon RT0 PROBA-V data with version 1.0 and from July 2020 onwards based upon RT0 Sentinel-3/OLCI data with version 1.1. RT0 is the Near Real Time product while RT5 is the final consolidated Real Time product
 
 __Outputs__: Files named c_gls_LAI300-RT0_{yyyymmdd}0000_GLOBE_OLCI_V1.1.2.nc or c_gls_LAI300-RT0_{yyymmdd}0000_GLOBE_PROBAV_V1.0.1.nc or c_gls_LAI300_{yyyymmdd}0000_GLOBE_PROBAV_V1.0.1.nc
 ##
 
-### Scripts for processing satellite data to Essential Forest Mitigation Indicators (EFMIs)...
+## Scripts for processing satellite data to Essential Forest Mitigation Indicators (EFMIs)...
 
 __Filename__: Process_Satellite_EURO-CORDEX_EFMI-AGB_2010and2015-2021_Annual.py
 
