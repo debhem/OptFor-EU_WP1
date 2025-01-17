@@ -1,32 +1,62 @@
-# OptFor-EU_WP1
+# OptFor-EU_WP1 - Satellite data
 
-The scripts provided in the Satellite-Data section provide code to download, process, resample and crop satellite data for use in the OptFor-EU project. See below for more information on each script and visit the OptFor-EU project website (https://optforeu.eu/) for more details on the project.
-Code developers: Dr. Jasdeep Anand and Dr. Rocio Barrio Guillo, University of Leicester
+### The scripts provided in this Satellite-Data section provide code to download, process, resample and spatially crop various satellite data for use in the OptFor-EU project. 
+### Please take a look below for more information on each script and visit the OptFor-EU project website (https://optforeu.eu/) for more details on the project.
 
-Process_Satellite_EURO-CORDEX_EFMI-AGB_2010and2015-2021_Annual.py
-__description__ = "Produces EFMI #4.1 Carbon Stored in living biomass. Resamples the spatial resolution and subsets to the EURO CORDEX region domain, and is multiplied by 0,5 to get the Carbon stock"
-__inputs__ = "ESA-CCI biomass map v5, at 100m resolution, for 2010 and 2015-2021, with units Mg/ha. Data was downloaded manually from https://data.ceda.ac.uk/neodc/esacci/biomass/data/agb/maps/v5.0/netcdf"
-__outputs__ = "File named rs_veg_europe_agb_none_ann_2010_2021_v1_esacci.nc, at 1km resolution, for 2010 and 2015-2021, with units tonnes/ha"
++++
 
-Download_Satellite_Global_EFMI-FIRES_2001_2022_Monthly.py
-__description__ = "Downloads data for EFMI #7 Forest area damaged by fire."
-__inputs__ = "C3S Copernicus burnt area dataset from OLCI, at 300m resolution, monthly for 2017-2022, unitless [presence or absence of fire within cell]"
-__outputs__ = "Files named c3s_pixel_burned_area_v1_1_{year}_monthly.zip"
+__Code developers__: Dr. Jasdeep Anand and Dr. Rocio Barrio Guillo, University of Leicester, UK
 
-Process_Satellite_EURO-CORDEX_EFMI-FIRES_2001_2022_Monthly.py
-__description__ = "Produces EFMI #7 Forest area damaged by fire. Selects the 'forest' land cover classes, resamples the spatial resolution and subsets to the EURO CORDEX region domain"
-__inputs__ = "C3S Copernicus burnt area dataset from OLCI, at 300m resolution, monthly for 2017-2022, unitless [presence or absence of fire within cell]"
-__outputs__ = "File named rs_veg_europe_fires_none_mon_2010_2021_v1_esacci.nc, at 1km resolution, monthly for 2017-2022, with variables: 'fires' (unitless, presence/absence fire in the cell for all land cover classes), 'forest_fires' (unitless, presence/absence fire in the cell for forest land cover classes), 'cell_area_ha' (Ha, the area of each cell)"
+__Date of code release__: 16th January 2025
 
-Download_Satellite_EURO-CORDEX_EFMI-SoilCarbon_2015_2024_Daily.py
-__description__ = "Downloads the data for the EFMI #4.3 Carbon stored in forest soils."
-__inputs__ = "NASA SMAP L4 Global Daily 9 km EASE-Grid Carbon Net Ecosystem Exchange, Version 7, at 9km resolution, daily for 2015-2024, with units gC/m2"
-__outputs__ = "Files named SMAP_L4_C_mdl_{yyymmdd}T000000_Vv7041_001.h5, at 9km resolution, daily for 2015-2024, subset to EURO-CORDEX region, with units gC/m2"
++++
 
-Process_Satellite_EURO-CORDEX_EFMI-SoilCarbon_2015_2024_Daily.py
-__description__ = "Produces EFMI #4.3 Carbon stored in forest soils. Resamples temporal resolution"
-__inputs__ = "NASA SMAP L4 Global Daily 9 km EASE-Grid Carbon Net Ecosystem Exchange, Version 7, at 9km resolution, daily for 2015-2024, with units gC/m2"
-__outputs__ = "File named rs_veg_europe_soilCarbon_none_mon_2015_2024_v1_smap.nc, at 9km resolution, monthly for 2015-2024, with units tonnes C/ha"
+## Brief description of each file...
+
+__Filename__: Process_Satellite_EURO-CORDEX_EFMI-AGB_2010and2015-2021_Annual.py
+
+__Description__: Produces EFMI #4.1 Carbon Stored in living biomass. Resamples the spatial resolution and subsets to the EURO CORDEX region domain, and is multiplied by 0,5 to get the Carbon stock
+
+__Inputs__: ESA-CCI biomass map v5, at 100m resolution, for 2010 and 2015-2021, with units Mg/ha. Data were downloaded manually from https://data.ceda.ac.uk/neodc/esacci/biomass/data/agb/maps/v5.0/netcdf
+
+__Outputs__: File named rs_veg_europe_agb_none_ann_2010_2021_v1_esacci.nc, at 1km resolution, for 2010 and 2015-2021, with units tonnes/ha
+##
+
+__Filename__: Download_Satellite_Global_EFMI-FIRES_2001_2022_Monthly.py
+
+__Description__: Downloads data for EFMI #7 Forest area damaged by fire
+
+__Inputs__: C3S Copernicus burnt area dataset from OLCI, at 300m resolution, monthly for 2017-2022, unitless [presence/absence of fire within cell]
+
+__Outputs__: Files named c3s_pixel_burned_area_v1_1_{year}_monthly.zip
+##
+
+__Filename__: Process_Satellite_EURO-CORDEX_EFMI-FIRES_2001_2022_Monthly.py
+
+__Description__: Produces EFMI #7 Forest area damaged by fire. Selects the 'forest' land cover classes, resamples the spatial resolution and subsets to the EURO CORDEX region domain
+
+__Inputs__: C3S Copernicus burnt area dataset from OLCI, at 300m resolution, monthly for 2017-2022, unitless [presence/absence of fire within cell]
+
+__Outputs__: File named rs_veg_europe_fires_none_mon_2010_2021_v1_esacci.nc, at 1km resolution, monthly for 2017-2022, with variables: 'fires' (unitless, presence/absence fire in the cell for all land cover classes), 'forest_fires' (unitless, presence/absence fire in the cell for forest land cover classes), 'cell_area_ha' (Ha, the area of each cell)
+##
+
+__Filename__: Download_Satellite_EURO-CORDEX_EFMI-SoilCarbon_2015_2024_Daily.py
+
+__Description__: Downloads the data for the EFMI #4.3 Carbon stored in forest soils
+
+__Inputs__: NASA SMAP L4 Global Daily 9 km EASE-Grid Carbon Net Ecosystem Exchange, Version 7, at 9km resolution, daily for 2015-2024, with units gC/m2
+
+__Outputs__: Files named SMAP_L4_C_mdl_{yyymmdd}T000000_Vv7041_001.h5, at 9km resolution, daily for 2015-2024, subset to EURO-CORDEX region, with units gC/m2
+##
+
+__Filename__: Process_Satellite_EURO-CORDEX_EFMI-SoilCarbon_2015_2024_Daily.py
+
+__Description__: Produces EFMI #4.3 Carbon stored in forest soils. Resamples temporal resolution
+
+__Inputs__: NASA SMAP L4 Global Daily 9 km EASE-Grid Carbon Net Ecosystem Exchange, Version 7, at 9km resolution, daily for 2015-2024, with units gC/m2
+
+__Outputs__: File named rs_veg_europe_soilCarbon_none_mon_2015_2024_v1_smap.nc, at 9km resolution, monthly for 2015-2024, with units tonnes C/ha
+##
 
 Process_Satellite_EURO-CORDEX_EFMI-DisturbanceInsectsDisease_2010_2021_Events.py
 __description__ = "Produces EFMI #5.1 Forest area with damage caused by insects and diseases. Subsets to the EURO CORDEX region domain"
