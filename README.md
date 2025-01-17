@@ -1,5 +1,5 @@
 # OptFor-EU_WP1 - Future climate projections
-The scripts provided in this Projection-Data section provide code and guidance to download, re-project and time aggregate (e.g., monthly, seasonal scales, where needed) the future climate projections data from EURO-CORDEX Regional Climate Model (RCM) simulations (https://euro-cordex.net/) driven by Climate Model Intercomparison Project Phase 5 Global Climate Model (CMIP5 GCM - https://wcrp-cmip.org/cmip5/) experiments.
+The scripts provided in this Projection-Data section provide code and guidance to download, process and re-project the future climate projections data from EURO-CORDEX Regional Climate Model (RCM) simulations (https://euro-cordex.net/) driven by Climate Model Intercomparison Project Phase 5 Global Climate Model (CMIP5 GCM - https://wcrp-cmip.org/cmip5/) experiments.
 
 Please take a look below for more information on each script and visit the OptFor-EU project website (https://optforeu.eu/) for more details on the project.
 
