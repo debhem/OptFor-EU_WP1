@@ -1,6 +1,6 @@
 # OptFor-EU_WP1 - Historic climate data (from CERRA reanalysis)
 
-### The scripts provided in the Historic-CERRA Data section provide code to download, reproject, time aggregate (e.g., monthly, seasonal scales), and crop the Copernicus Regional Reanalyses for Europe - CERRA (https://climate.copernicus.eu/copernicus-regional-reanalysis-europe-cerra) reanalyses data covering the recent past (1984-2021) for use in the OptFor-EU project. Please take a look below for more information on each script and visit the OptFor-EU project website (https://optforeu.eu/) for more details on the project.
+### The scripts provided in this Historic-CERRA Data section provide code to download, reproject, time aggregate (e.g., monthly, seasonal scales), and crop the Copernicus Regional Reanalyses for Europe - CERRA (https://climate.copernicus.eu/copernicus-regional-reanalysis-europe-cerra) reanalyses data covering the recent past (1984-2021) for use in the OptFor-EU project. Please take a look below for more information on each script and visit the OptFor-EU project website (https://optforeu.eu/) for more details on the project.
 
 ### ============================================================
 ### Script for Downloading CERRA climate  variables
