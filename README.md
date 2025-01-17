@@ -4,12 +4,20 @@ The scripts provided in this Historic-CERRA Data section provide code to downloa
 
 Please take a look below for more information on each script and visit the OptFor-EU project website (https://optforeu.eu/) for more details on the project.
 
-### ============================================================
-### Script for Downloading CERRA climate variables
-### Authors: [Alex Dumitrescu; Vlad Amihaesei- MeteoRo]
-### Date: [10/12/2024]
-#### download_[EFMI_climate_variable]_CERRA.R
-## Description:
++++
+
+#### Authors: [Alex Dumitrescu; Vlad Amihaesei- MeteoRo]
+
+#### Date: [10/12/2024]
+
++++
+
+## Brief description of each file...
+
+#### Scripts for Downloading CERRA climate variables
+
+__Filename__: download_[EFMI_climate_variable]_CERRA.R
+
 #### This script automates the retrieval of CERRA reanalyses data for climate variables to be used in OptFor-EU. It uses the R programming language with the "ecmwfr" library to download the CERRA climate data. 
 #### The data is requested in 3-hour intervals from 1984 to 2021, excluding years for which the data has already been downloaded. 
 #### It:
