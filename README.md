@@ -7,15 +7,16 @@ Please take a look below for more information on each script and visit the OptFo
 
 #### Code developers: Dr Deborah Hemming and Dr Murk Memon, UK Met Office
 
-#### Date of code release: 15/01/2025
+#### Date of code release: 20th January 2025
 
 ============================================================
-## Descriptions:
+### Brief description of each file:
 
-### File: ReadMe_Download
+__Filename__: ReadMe_Download.md
 
-Provides steps and guidance needed to download future projected climate variables for use in the OptFor-EU project that are available from the CMIP5 EURO-CORDEX monthly data for future projections (2006-2050) covering the Europe domain
+__Description__: Provides steps and guidance needed to download future projected climate variables for use in the OptFor-EU project that are available from the CMIP5 EURO-CORDEX monthly data for future projections (2006-2050) covering the Europe domain
 
+__...__
 
 
   ii) Harmonise - Rotate and regrid (to 1km) the native rotated polar coordinates to regular latitude/longitude grid for the Europe domain (West -44.75, East 65.25, South 21.75, North 72.75)
