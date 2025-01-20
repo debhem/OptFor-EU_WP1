@@ -46,27 +46,18 @@ __Filename__: download_[EFMI_climate_variable]_CERRA.R
 
 #### Scripts for processing CERRA climate variables
 #### process_[EFMI_climate_variable]_CERRA_to_EURO-CORDEX_1984-2021_MonthlyMean.R
-processes hourly precipitation data from the CERRA (Copernicus European Regional Reanalysis) dataset.
-# It performs temporal aggregation to generate daily, monthly, yearly, and seasonal summaries.
-# The script also standardizes units and remaps the data to align with the EURO-CORDEX grid.
-# Inputs:
-#   - Hourly runoff data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/runoff/.
-# - EURO-CORDEX-compatible grid file: CERRA_lonlatgrid.txt.
-# Outputs:
-#   - NetCDF files for daily, monthly, yearly, and seasonal aggregated runoff data saved in the same directory.
-# - The naming convention for outputs follows the format: [climate_variable]_[TIMEFRAME]_[YEAR].nc.
-# Prerequisites:
-#   - CDO (Climate Data Operators) must be installed and accessible from the command line.
-# - A valid EURO-CORDEX grid file (CERRA_lonlatgrid.txt).
-# Instructions:
-#   - Adjust file paths and directories to your local environment.
-# - Ensure temporary file management is handled correctly by the script.
-# Data Properties:
-#   - Spatial extent: Covers Europe from northern Africa to the Ural Mountains, spanning the Atlantic Ocean in the west to Scandinavia in the north.
-# - Spatial resolution: 5.5 km x 5.5 km grid cells (30.25 km² per grid cell).
-# - Temporal resolution: Aggregation is performed from  3-hourly inputs.
-# -  Projection: WGS64 (EPSG:4326).
-
+#### It processes hourly precipitation data from the CERRA (Copernicus European Regional Reanalysis) dataset.
+#### It performs temporal aggregation to generate daily, monthly, yearly, and seasonal summaries.
+#### The script also standardizes units and remaps the data to align with the EURO-CORDEX grid.
+### Inputs:
+####  - Hourly runoff data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/runoff/.
+####- EURO-CORDEX-compatible grid file: CERRA_lonlatgrid.txt.
+### Outputs:
+####   - NetCDF files for daily, monthly, yearly, and seasonal aggregated runoff data saved in the same directory.
+#### - The naming convention for outputs follows the format: [climate_variable]_[TIMEFRAME]_[YEAR].nc.
+### Prerequisites:
+####   - CDO (Climate Data Operators) must be installed and accessible from the command line.
+#### - A valid EURO-CORDEX grid file (CERRA_lonlatgrid.txt).
 
 #### ============================================================
 #### crop_[EFMI_climate_variable]_CSA_CERRA_monthly.R
