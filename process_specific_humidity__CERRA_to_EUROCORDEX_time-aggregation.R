@@ -25,7 +25,7 @@
 #   - Spatial extent: Covers Europe from northern Africa to the Ural Mountains, spanning the Atlantic Ocean in the west to Scandinavia in the north
 #   - Spatial resolution: 5.5 km x 5.5 km grid cells (30.25 km² per grid cell)
 #   - Temporal resolution: Aggregation is performed on 3-hourly inputs
-#   - Units: millimeters (mm)
+#   - Units: g of water vapour within a kg of air (g/kg)
 #   - Projection: WGS64 (EPSG:4326)
 
 # Instructions:
