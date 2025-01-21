@@ -1,20 +1,22 @@
-__title__ = "Script to aggregate Hourly Runoff Data from CERRA"
-__date__ = "20th January 2025"
-__author__ = "Vlad Alexandru AMIHĂESEI"
-__credits__ = ["Vlad Alexandru AMIHĂESEI", "MeteoRomania, National Meteorological Administration, Romania"]
-__version__ = "1"
-__description__ = "Processes hourly precipitation data from the CERRA (Copernicus European Regional Reanalysis) dataset
-                   Performs temporal aggregation to generate daily, monthly, yearly, and seasonal summaries
-                   Standardizes units and remaps the data to align with the EURO-CORDEX gridProduces EFMI #8 Changes in Tree Cover Density
-                   Resamples spatial resolution and subsets to the EURO CORDEX region domain"
-__inputs__ = "Hourly runoff data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/runoff/
-              EURO-CORDEX-compatible grid file: CERRA_lonlatgrid.txt"
-__outputs__ = "NetCDF files for daily, monthly, yearly, and seasonal aggregated runoff data saved in the same directory"
-               Note: The naming convention of outputs follows the format: runoff_[TIMEFRAME]_[YEAR].nc
-__Prerequisites__ = "CDO (Climate Data Operators) must be installed and accessible from the command line. 
-                     A valid EURO-CORDEX grid file is needed (CERRA_lonlatgrid.txt)"
+###################################################################################################################################################
+# Title: Script to aggregate Hourly Runoff Data from CERRA
+# Date: 20th January 2025
+# Author: Vlad Alexandru AMIHĂESEI, MeteoRomania, National Meteorological Administration, Romania
 
-# Instruction
+# Description: Processes hourly precipitation data from the CERRA (Copernicus European Regional Reanalysis) dataset
+#              Performs temporal aggregation to generate daily, monthly, yearly, and seasonal summaries
+#              Standardizes units and remaps the data to align with the EURO-CORDEX gridProduces EFMI #8 Changes in Tree Cover Density
+#              Resamples spatial resolution and subsets to the EURO CORDEX region domain
+
+# Inputs: Hourly runoff data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/runoff/
+#         EURO-CORDEX-compatible grid file: CERRA_lonlatgrid.txt
+# Outputs: NetCDF files for daily, monthly, yearly, and seasonal aggregated runoff data saved in the same directory
+#          Note: The naming convention of outputs follows the format: runoff_[TIMEFRAME]_[YEAR].nc
+
+# Prerequisites: CDO (Climate Data Operators) must be installed and accessible from the command line
+#                A valid EURO-CORDEX grid file is needed (CERRA_lonlatgrid.txt)
+
+# Instructions
 #   - Adjust file paths and directories to your local environment
 #   - Ensure temporary file management is handled correctly by the script
 
@@ -24,6 +26,7 @@ __Prerequisites__ = "CDO (Climate Data Operators) must be installed and accessib
 #   - Temporal resolution: Aggregation is performed on 3-hourly inputs
 #   - Units: milimeters (mm)
 #   - Projection: WGS64 (EPSG:4326)
+###################################################################################################################################################
 
 # Set working directory
 setwd("~/D/2024/optforeu/")
@@ -46,26 +49,26 @@ if (!dir.exists("tmp")) dir.create("tmp")
 for (i in seq_along(files)) {
   print(paste("Processing file:", files[i]))
   
-  ### Generate output file names for daily, monthly, and yearly aggregations
+  ## Generate output file names for daily, monthly, and yearly aggregations
   name.day <- gsub("grib", "nc", gsub("03h", "DAY", files[i]))
   name.mon <- gsub("grib", "nc", gsub("03h", "MON", files[i]))
   name.year <- gsub("grib", "nc", gsub("03h", "YEAR", files[i]))
   
-  ### Daily Sum Calculation
-  # Use CDO to calculate daily sum from 3-hourly precip data:
-  # - Adjust time by shifting 1 hour back (-1 hour)
-  # - Set the attribute for precipitation units to mm
+  ## Daily Sum Calculation
+  ## Use CDO to calculate daily sum from 3-hourly precip data:
+  ## Adjust time by shifting 1 hour back (-1 hour)
+  ## Set the attribute for precipitation units to mm
   system(paste0(
     "cdo -O daysum -shifttime,-1hour -setattribute,sro@units=mm ", files[i], " tmp/tmp_daysum.nc"
   ))
   
-  # Remap the daily data to EURO-CORDEX grid
+  ## Remap the daily data to EURO-CORDEX grid
   system(paste0(
     "cdo -P 7 remapbil,", eurocordex, " tmp/tmp_daysum.nc ", name.day
   ))
   
-  ### Monthly Sum Calculation
-  # Use CDO to calculate monthly sum from 3-hourly data and remap to EURO-CORDEX grid
+  ## Monthly Sum Calculation
+  ## Use CDO to calculate monthly sum from 3-hourly data and remap to EURO-CORDEX grid
   system(paste0(
     "cdo -O monsum -shifttime,-1hour -setattribute,sro@units=mm ", files[i], " tmp/tmp_monsum.nc"
   ))
@@ -73,18 +76,18 @@ for (i in seq_along(files)) {
     "cdo -P 7 remapbil,", eurocordex, " tmp/tmp_monsum.nc ", name.mon
   ))
   
-  ### Yearly Sum Calculation
-  # Compute yearly sum and remap to EURO-CORDEX grid
+  ## Yearly Sum Calculation
+  ## Compute yearly sum and remap to EURO-CORDEX grid
   system("cdo -O yearsum tmp/tmp_monsum.nc tmp/tmp_yearsum.nc")
   system(paste0(
     "cdo -P 7 remapbil,", eurocordex, " tmp/tmp_yearsum.nc ", name.year
   ))
   
-  # Clean up temporary files to save disk space
+  ## Clean up temporary files to save disk space
   unlink(list.files("tmp", full.names = TRUE))
 }
 
-### Seasonal Aggregation
+# Seasonal Aggregation
 # List all monthly files ("MON") and calculate seasonal sums
 files.mon <- list.files("/media/vlad/Elements2/CERRA/raw/precip/", pattern = "MON", full.names = TRUE)
 name.seas <- "/media/vlad/Elements2/CERRA/raw/precip/precip_SEAS_1984-2021.nc"
@@ -97,7 +100,7 @@ system(paste0(
   "cdo delete,timestep=1,145 -seassum tmp/tmp_merged.nc ", name.seas
 ))
 
-### Optional: Validate Outputs Using R (Commented Out)
+# Optional: Validate Outputs Using R (Commented Out)
 # library(terra)
 # vf.day  <- terra::rast(name.day)
 # vf.mon  <- terra::rast(name.mon)
@@ -105,4 +108,4 @@ system(paste0(
 # vf.seas <- terra::rast(name.seas)
 # plot(vf.seas[[1:10]])
 
-### End of Script
+# End of Script
