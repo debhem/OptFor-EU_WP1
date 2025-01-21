@@ -12,7 +12,7 @@
 # Inputs: Directory: "/media/vlad/Elements2/CERRA/raw/specific_humidity" (contains .grib files)
 #                    EURO-CORDEX grid file: "CERRA_lonlatgrid.txt"
 
-# Outputs: NetCDF files for daily, monthly, yearly, and seasonal aggregatDaily specific humidity (NetCDF): "*_DAY.nc"
+# Outputs: NetCDF files for daily, monthly, yearly, and seasonal aggregated data
 #          Monthly specific humidity (NetCDF): "*_MON.nc"
 #          Yearly specific humidity (NetCDF): "*_YEAR.nc"
 #          Seasonal mean specific humidity (NetCDF): "specific_humidity_SEAS_1984-2021.nc"
