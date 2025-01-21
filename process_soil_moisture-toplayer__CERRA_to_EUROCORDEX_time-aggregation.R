@@ -1,6 +1,8 @@
 ###################################################################################################################################################
 # Title: Script for processing CERRA Soil Moisture data
+
 # Date: 20th January 2025
+
 # Author: Vlad Alexandru AMIHĂESEI, MeteoRomania, National Meteorological Administration, Romania
 
 # Description: This script processes CERRA soil moisture data for the topsoil layer at 3-hourly intervals. It performs temporal aggregation to 
@@ -9,6 +11,7 @@
 # Inputs:  Source data files: GRIB files for soil moisture data located in "/media/vlad/Elements2/CERRA/raw/soilmoisture-top/"
 #          EURO-CORDEX grid file: "CERRA_lonlatgrid.txt"
 #          Temporal resolution: 3-hourly data ("03h" included in file names)
+
 # Outputs: NetCDF files for daily, monthly, yearly, and seasonal aggregated data
 #          Daily specific humidity (NetCDF): "*_DAY.nc"
 #          Monthly specific humidity (NetCDF): "*_MON.nc"
@@ -24,16 +27,16 @@
 #   Yearly: Replace "03h" with "YEAR"
 #   Seasonal: "soilmoisture-top_SEAS_1984-2021.nc"
 
-# Instructions:
-#   - Adjust file paths and directories to your local environment
-#   - Ensure temporary file management is handled correctly by the script
-
 # Data Properties:
 #   - Spatial extent: Covers Europe from northern Africa to the Ural Mountains, spanning the Atlantic Ocean in the west to Scandinavia in the north
 #   - Spatial resolution: 5.5 km x 5.5 km grid cells (30.25 km² per grid cell)
 #   - Temporal resolution: Aggregation is performed on 3-hourly inputs
 #   - Units: milimeters (mm)
 #   - Projection: WGS64 (EPSG:4326)
+
+# Instructions:
+#   - Adjust file paths and directories to your local environment
+#   - Ensure temporary file management is handled correctly by the script
 ###################################################################################################################################################
 
 # Set working directory
