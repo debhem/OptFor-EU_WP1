@@ -1,28 +1,35 @@
-# Script for Aggregating Hourly Runoff Data from CERRA
-# Author: [MeteoRo]
-# Date: [20/01/2025]
-# Description:
-#   This script processes hourly runoff data from the CERRA (Copernicus European Regional Reanalysis) dataset.
-# It performs temporal aggregation to generate daily, monthly, yearly, and seasonal summaries.
-# The script also standardizes units and remaps the data to align with the EURO-CORDEX grid.
-# Inputs:
-#   - Hourly runoff data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/runoff/.
-# - EURO-CORDEX-compatible grid file: CERRA_lonlatgrid.txt.
-# Outputs:
-#   - NetCDF files for daily, monthly, yearly, and seasonal aggregated runoff data saved in the same directory.
-# - The naming convention for outputs follows the format: runoff_[TIMEFRAME]_[YEAR].nc.
-# Prerequisites:
-#   - CDO (Climate Data Operators) must be installed and accessible from the command line.
-# - A valid EURO-CORDEX grid file (CERRA_lonlatgrid.txt).
-# Instructions:
-#   - Adjust file paths and directories to your local environment.
-# - Ensure temporary file management is handled correctly by the script.
+###################################################################################################################################################
+# Title: Script for aggregating Hourly Runoff data from CERRA
+
+# Date: 20th January 2025
+
+# Author: Vlad Alexandru AMIHĂESEI, MeteoRomania, National Meteorological Administration, Romania
+
+# Description: Processes hourly runoff data from CERRA (Copernicus European Regional Reanalysis) files
+#              Performs temporal aggregation to generate daily, monthly, yearly, and seasonal summaries
+#              Standardizes units and remaps the data to align with the EURO-CORDEX grid
+
+# Inputs: Directory: Hourly runoff data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/runoff/
+#                    EURO-CORDEX grid file: "CERRA_lonlatgrid.txt"
+
+# Outputs: NetCDF files for daily, monthly, yearly, and seasonal aggregat ted runoff data saveed in same directory
+#          The naming convention for outputs follows the format: runoff_[TIMEFRAME]_[YEAR].nc
+
+# Prerequisites: CDO (Climate Data Operators) must be installed and accessible from the command line
+#                A valid EURO-CORDEX grid file (CERRA_lonlatgrid.txt)
+
 # Data Properties:
-#   - Spatial extent: Covers Europe from northern Africa to the Ural Mountains, spanning the Atlantic Ocean in the west to Scandinavia in the north.
-# - Spatial resolution: 5.5 km x 5.5 km grid cells (30.25 km² per grid cell).
-# - Temporal resolution: Aggregation is performed on 3-hourly inputs.
-# - Units: milimeters (mm).
-# -  Projection: WGS64 (EPSG:4326).
+#   - Spatial extent: Covers Europe from northern Africa to the Ural Mountains, spanning the Atlantic Ocean in the west to Scandinavia in the north
+#   - Spatial resolution: 5.5 km x 5.5 km grid cells (30.25 km² per grid cell)
+#   - Temporal resolution: Aggregation is performed on 3-hourly inputs
+#   - Units: millimeters (mm)
+#   - Projection: WGS64 (EPSG:4326)
+
+# Instructions:
+#   - Adjust file paths and directories to your local environment
+#   - Ensure temporary file management is handled correctly by the script
+###################################################################################################################################################
+
 # Set working directory
 setwd("~/D/2024/optforeu/")
 
