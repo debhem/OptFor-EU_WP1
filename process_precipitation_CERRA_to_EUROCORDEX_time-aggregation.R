@@ -29,7 +29,6 @@
 # Instructions:
 #   - Adjust file paths and directories to your local environment
 #   - Ensure temporary file management is handled correctly by the script
-
 ###################################################################################################################################################
 
 # Set working directory
@@ -111,5 +110,3 @@ system(paste0(
 # vf.year <- terra::rast(name.year)
 # vf.seas <- terra::rast(name.seas)
 # plot(vf.seas[[1:10]])
-
-# End of Script
