@@ -1,33 +1,37 @@
-#############################################################################################################
-# Script for Processing CERRA Specific Humidity Data
-# Author: [MeteoRo]
-# Date: [20/01/2025]
-#
-# Description:
-# This script processes specific humidity data from CERRA (Copernicus European Regional Reanalysis) files. 
-# The data, available in 3-hour intervals, is aggregated to daily, monthly, yearly, and seasonal resolutions. 
-# The outputs are remapped to the EURO-CORDEX-compatible grid and units are standardized.
-#
-# Inputs:
-# - Directory: "/media/vlad/Elements2/CERRA/raw/specific_humidity" (contains .grib files).
-# - EURO-CORDEX grid file: "CERRA_lonlatgrid.txt".
-#
-# Outputs:
-# - Daily specific humidity (NetCDF): "*_DAY.nc"
-# - Monthly specific humidity (NetCDF): "*_MON.nc"
-# - Yearly specific humidity (NetCDF): "*_YEAR.nc"
-# - Seasonal mean specific humidity (NetCDF): "specific_humidity_SEAS_1984-2021.nc"
-#
-# Prerequisites:
-# - CDO (Climate Data Operators) installed and accessible from the command line.
-# - Directory structure set up with write permissions for temporary files.
-# - Ensure the R libraries `terra` are installed if output verification is required.
-#
+###################################################################################################################################################
+# Title: Script for processing CERRA Specific Humidity data
+
+# Date: 20th January 2025
+
+# Author: Vlad Alexandru AMIHĂESEI, MeteoRomania, National Meteorological Administration, Romania
+
+# Description: Processes specific humidity data from CERRA (Copernicus European Regional Reanalysis) files
+#              The data, available in 3-hour intervals, is aggregated to daily, monthly, yearly, and seasonal resolutions
+#              The outputs are remapped to the EURO-CORDEX-compatible grid and units are standardized
+
+# Inputs: Directory: "/media/vlad/Elements2/CERRA/raw/specific_humidity" (contains .grib files)
+#                    EURO-CORDEX grid file: "CERRA_lonlatgrid.txt"
+
+# Outputs: NetCDF files for daily, monthly, yearly, and seasonal aggregatDaily specific humidity (NetCDF): "*_DAY.nc"
+#          Monthly specific humidity (NetCDF): "*_MON.nc"
+#          Yearly specific humidity (NetCDF): "*_YEAR.nc"
+#          Seasonal mean specific humidity (NetCDF): "specific_humidity_SEAS_1984-2021.nc"
+
+# Prerequisites: CDO (Climate Data Operators) must be installed and accessible from the command line
+#                Directory structure set up with write permissions for temporary files
+#                Ensure the R libraries `terra` are installed if output verification is required
+
+# Data Properties:
+#   - Spatial extent: Covers Europe from northern Africa to the Ural Mountains, spanning the Atlantic Ocean in the west to Scandinavia in the north
+#   - Spatial resolution: 5.5 km x 5.5 km grid cells (30.25 km² per grid cell)
+#   - Temporal resolution: Aggregation is performed on 3-hourly inputs
+#   - Units: millimeters (mm)
+#   - Projection: WGS64 (EPSG:4326)
+
 # Instructions:
-# - Replace placeholder directories and filenames with the actual paths.
-# - Execute the script to process all available .grib files for specific humidity.
-#
-#############################################################################################################
+#   - Replace placeholder directories and filenames with the actual paths
+#   - Execute the script to process all available .grib files for specific humidity
+###################################################################################################################################################
 
 # Set working directory
 setwd("~/D/2024/optforeu/")
@@ -50,24 +54,24 @@ for (i in 1:length(files)) {
   
   print(paste("Processing file:", files[i]))
   
-  # Define output filenames
+  ## Define output filenames
   name.day <- gsub("grib", "nc", gsub("03h", "DAY", files[i]))
   name.mon <- gsub("grib", "nc", gsub("03h", "MON", files[i]))
   name.year <- gsub("grib", "nc", gsub("03h", "YEAR", files[i]))
   
-  # Compute daily sum
+  ## Compute daily sum
   system(paste0("cdo -O daysum -shifttime,-1hour -setattribute,q@units=kg/kg ", files[i], " tmp/tmp_daysum.nc"))
   system(paste0("cdo -P 7 remapbil,", eurocordex, " tmp/tmp_daysum.nc ", name.day))
   
-  # Compute monthly sum
+  ## Compute monthly sum
   system(paste0("cdo -O monsum -shifttime,-1hour -setattribute,q@units=kg/kg ", files[i], " tmp/tmp_monsum.nc"))
   system(paste0("cdo -P 7 remapbil,", eurocordex, " tmp/tmp_monsum.nc ", name.mon))
   
-  # Compute yearly sum
+  ## Compute yearly sum
   system("cdo -O yearsum tmp/tmp_monsum.nc tmp/tmp_yearsum.nc")
   system(paste0("cdo -P 7 remapbil,", eurocordex, " tmp/tmp_yearsum.nc ", name.year))
   
-  # Remove temporary files
+  ## Remove temporary files
   unlink(list.files("tmp", full.names = TRUE))
 }
 
