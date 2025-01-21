@@ -1,7 +1,8 @@
 __author__ = "Dr. Rocio Barrio Guillo, Dr. Jasdeep S. Anand"
-__other_citations__ = "Kimball, J. S., Endsley, A., Jones, L. A., Kundig, T. & Reichle, R. (2022). SMAP L4 Global Daily 9 km EASE-Grid Carbon Net Ecosystem Exchange. (SPL4CMDL, Version 7). [Data Set]. Boulder, Colorado USA. NASA National Snow and Ice Data Center Distributed Active Archive Center. https://doi.org/10.5067/3K9F0S1Q5J2U."
+__other_citations__ = "Kimball, J. S., Endsley, A., Jones, L. A., Kundig, T. & Reichle, R. (2022). SMAP L4 Global Daily 9 km EASE-Grid Carbon Net Ecosystem Exchange"
+                      "(SPL4CMDL, Version 7). [Data Set]. Boulder, Colorado USA. NASA National Snow and Ice Data Center Distributed Active Archive Center. https://doi.org/10.5067/3K9F0S1Q5J2U"
 __version__ = "1"
-__description__ = "Downloads the data for the EFMI #4.3 Carbon stored in forest soils."
+__description__ = "Downloads the data for the EFMI #4.3 Carbon stored in forest soils"
 __inputs__ = "NASA SMAP L4 Global Daily 9 km EASE-Grid Carbon Net Ecosystem Exchange, Version 7, at 9km resolution, daily for 2015-2024, with units gC/m2"
 __outputs__ = "Files named SMAP_L4_C_mdl_{yyymmdd}T000000_Vv7041_001.h5, at 9km resolution, daily for 2015-2024, with units gC/m2"
 
