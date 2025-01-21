@@ -12,7 +12,7 @@
 # Inputs: Directory: Hourly runoff data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/runoff/
 #                    EURO-CORDEX grid file: "CERRA_lonlatgrid.txt"
 
-# Outputs: NetCDF files for daily, monthly, yearly, and seasonal aggregat ted runoff data saved in same directory
+# Outputs: NetCDF files for daily, monthly, yearly, and seasonal aggregated runoff data saved in same directory
 #          The naming convention for outputs follows the format: runoff_[TIMEFRAME]_[YEAR].nc
 
 # Prerequisites: CDO (Climate Data Operators) must be installed and accessible from the command line
