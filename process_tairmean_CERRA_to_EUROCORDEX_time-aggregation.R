@@ -6,11 +6,11 @@
 # It performs temporal aggregation to generate daily, monthly, yearly, and seasonal summaries.
 # The script also standardizes units and remaps the data to align with the EURO-CORDEX grid.
 # Inputs:
-#   - Hourly runoff data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/runoff/.
+#   - Hourly air temperature data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/tair/.
 # - EURO-CORDEX-compatible grid file: CERRA_lonlatgrid.txt.
 # Outputs:
 #   - NetCDF files for daily, monthly, yearly, and seasonal aggregated runoff data saved in the same directory.
-# - The naming convention for outputs follows the format: runoff_[TIMEFRAME]_[YEAR].nc.
+# - The naming convention for outputs follows the format: tair_[TIMEFRAME]_[YEAR].nc.
 # Prerequisites:
 #   - CDO (Climate Data Operators) must be installed and accessible from the command line.
 # - A valid EURO-CORDEX grid file (CERRA_lonlatgrid.txt).
