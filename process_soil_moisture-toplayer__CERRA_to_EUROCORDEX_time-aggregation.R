@@ -29,6 +29,11 @@
 
 # Data Properties:
 #   - Spatial extent: Covers Europe from northern Africa to the Ural Mountains, spanning the Atlantic Ocean in the west to Scandinavia in the north
+#     The domain corners are shown below (larger than the EURO-CORDEX domain):
+#          min_lon = -58.21
+#          max_lon = 74.15
+#          min_lat = 20.26
+#          max_lat = 75.30
 #   - Spatial resolution: 5.5 km x 5.5 km grid cells (30.25 km² per grid cell)
 #   - Temporal resolution: Aggregation is performed on 3-hourly inputs
 #   - Units: millimeters (mm)
