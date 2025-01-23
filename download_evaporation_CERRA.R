@@ -38,14 +38,14 @@
 ###################################################################################################################################################
 
 # Load required libraries
-library(ecmwfr) # For accessing ECMWF data services and handling data requests.
-library(dplyr)  # For data manipulation (e.g., filtering, transforming data).
+library(ecmwfr) # For accessing ECMWF data services and handling data requests
+library(dplyr)  # For data manipulation (e.g., filtering, transforming data)
 
 # Set the working directory where files will be saved
 setwd("/mnt/D/Alex/Clima/2023/optforeu")
 
-# Note: Uncomment and configure the following lines to set up the ECMWF CDS API key.
-# The API key is used to authenticate the user and access data from the Copernicus Data Store (CDS).
+# Note: Uncomment and configure the following lines to set up the ECMWF CDS API key
+# The API key is used to authenticate the user and access data from the CDS
 # wf_set_key(service = "cds",
 #            key = "47b85274-0e3f-40fa-8b3d-7e2ef2294bd9", # Replace with your actual key
 #            user = "9924") # Replace with your user ID
@@ -92,7 +92,7 @@ for (i in 1:length(ani)) {
     "target" = paste0("evapo_", ani[i], ".grib")             # File name for the output (e.g., evapo_1984.grib)
   )
   
-  # Send the request to the CDS API and download the data
+  ## Send the request to the CDS API and download the data
   wf_request(
     request,                   # Request parameters defined above
     user = "9924",             # User ID (replace with your actual user ID)
