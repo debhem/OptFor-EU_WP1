@@ -1,5 +1,5 @@
 ###################################################################################################################################################
-# Title: Script for Downloading CERRA 3-hourly snow-fall water equivalent (SFWE) data
+# Title: Script for Downloading CERRA 3-hourly snow-depth water equivalent (swe) data
 
 # Date: 11th December 2024
 
@@ -14,15 +14,15 @@
 #                2. Scans the directory containing already downloaded data to identify years for which data is missing
 #                3. Constructs a data request for each missing year, specifying parameters such as the variable (specific humidity), model level, 3-hourly time steps, and output format
 #                4. Sends the requests to the CDS API and saves the downloaded files in a specified folder with filenames reflecting the year and data resolution
-#              Data are saved in GRIB format with filenames such as 'SFWE_03h_1984.grib'
+#              Data are saved in GRIB format with filenames such as 'swe_03h_1984.grib'
 
 # Inputs: Years of interest: 1984 to 2021
-#         Existing files in the directory: "nc/cerra/sfwe"
+#         Existing files in the directory: "nc/cerra/swe"
 #         CDS API key and user credentials
 
 # Outputs: GRIB files for the variable "snow-depth water equivalent" 
-#          Saved in the folder "nc/cerra/sfwe/" with the naming 
-#          Format "sfwe_3h_[year].grib"
+#          Saved in the folder "nc/cerra/swe/" with the naming 
+#          Format "swe_3h_[year].grib"
 #          The downloaded data (output) has the following proprierties:
 #            1. Spatial extent : domain spans from northern Africa beyond the northern tip of Scandinavia
 #            2. Spatial resolution: 5.5 km x 5.5 km hence a grid box has an area of 30.25km
