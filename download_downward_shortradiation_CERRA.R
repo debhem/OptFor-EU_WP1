@@ -1,5 +1,5 @@
 ###################################################################################################################################################
-# Title: Script for Downloading CERRA Direct Shortwave Radiation Data
+# Title: Script for Downloading CERRA Direct Shortwave Radiation data
 
 # Date: 11th December 2024
 
