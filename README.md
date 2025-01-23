@@ -27,12 +27,6 @@ __Inputs__: Years of interest: 1984 to 2021.
             CDS API key and user credentials
 
 __Outputs__: GRIB files for the climate variable saved in the folder "nc/cerra/[name_of_variable]" with the naming format "ws_[year].grib"
-
-__Prerequisites__: A valid CDS API key configured using `ecmwfr`.
-                   Ensure the required libraries (`ecmwfr`, `dplyr`) are installed.
-
-__Instructions__: Replace the placeholder API key and user details with your own. 
-                  Run the script to fetch and save the data locally
 ##
 
 ## Scripts for processing CERRA climate variables...
@@ -48,7 +42,4 @@ __Inputs__: Hourly runoff data files in GRIB format located in the directory /me
             
 __Outputs__: NetCDF files for daily, monthly, yearly, and seasonal aggregated runoff data saved in the same directory.
              The naming convention for outputs follows the format: [climate_variable]_[TIMEFRAME]_[YEAR].nc
-             
-__Prerequisites__: CDO (Climate Data Operators) must be installed and accessible from the command line.
-                   A valid EURO-CORDEX grid file (CERRA_lonlatgrid.txt)
 ##
