@@ -95,5 +95,3 @@ system(paste0(
 # vf.mon  <- terra::rast(name.mon)
 # vf.year <- terra::rast(name.year)
 # vf.seas <- terra::rast(name.seas)
-
-### End of Script
