@@ -59,9 +59,3 @@ __Outputs__: NetCDF files for daily, monthly, yearly, and seasonal aggregated ru
 __Prerequisites__: CDO (Climate Data Operators) must be installed and accessible from the command line.
                    A valid EURO-CORDEX grid file (CERRA_lonlatgrid.txt)
 ##
-
-#### ============================================================
-#### crop_[EFMI_climate_variable]_CSA_CERRA_monthly.R
-
-
-#### ============================================================
