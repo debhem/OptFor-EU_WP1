@@ -114,5 +114,3 @@ system(paste0(
 # vf.year <- terra::rast(name.year)
 # vf.seas <- terra::rast(name.seas)
 # plot(vf.seas[[1:10]])
-
-### End of Script
