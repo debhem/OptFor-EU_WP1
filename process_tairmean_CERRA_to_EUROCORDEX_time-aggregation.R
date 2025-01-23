@@ -1,28 +1,39 @@
-# Script for Aggregating Hourly Runoff Data from CERRA
-# Author: [MeteoRo]
-# Date: [20/01/2025]
-# Description:
-#   This script processes 3 hourly air temperature data from the CERRA (Copernicus European Regional Reanalysis) dataset.
-# It performs temporal aggregation to generate daily, monthly, yearly, and seasonal summaries.
-# The script also standardizes units and remaps the data to align with the EURO-CORDEX grid.
-# Inputs:
-#   - Hourly air temperature data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/tair/.
-# - EURO-CORDEX-compatible grid file: CERRA_lonlatgrid.txt.
-# Outputs:
-#   - NetCDF files for daily, monthly, yearly, and seasonal aggregated runoff data saved in the same directory.
-# - The naming convention for outputs follows the format: tair_[TIMEFRAME]_[YEAR].nc.
-# Prerequisites:
-#   - CDO (Climate Data Operators) must be installed and accessible from the command line.
-# - A valid EURO-CORDEX grid file (CERRA_lonlatgrid.txt).
-# Instructions:
-#   - Adjust file paths and directories to your local environment.
-# - Ensure temporary file management is handled correctly by the script.
+###################################################################################################################################################
+# Title: Script for aggregating CERRA 3-hourly Air Temperature data
+
+# Date: 20th January 2025
+
+# Author: Vlad Alexandru AMIHĂESEI, MeteoRomania, National Meteorological Administration, Romania
+
+# Description: Processes 3-hourly air temperature data from CERRA (Copernicus European Regional Reanalysis) files
+#              Performs temporal aggregation to generate daily, monthly, yearly, and seasonal summaries
+#              Standardizes units and remaps the data to align with the EURO-CORDEX grid
+
+# Inputs: Directory: 3-hourly air temperature data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/tair/
+#                    EURO-CORDEX grid file: "CERRA_lonlatgrid.txt"
+
+# Outputs: NetCDF files for daily, monthly, yearly, and seasonal aggregated air temperature data saved in same directory
+#          The naming convention for outputs follows the format: tair_[TIMEFRAME]_[YEAR].nc
+
+# Prerequisites: CDO (Climate Data Operators) must be installed and accessible from the command line
+#                A valid EURO-CORDEX grid file (CERRA_lonlatgrid.txt)
+
 # Data Properties:
-#   - Spatial extent: Covers Europe from northern Africa to the Ural Mountains, spanning the Atlantic Ocean in the west to Scandinavia in the north.
-# - Spatial resolution: 5.5 km x 5.5 km grid cells (30.25 km² per grid cell).
-# - Temporal resolution: Aggregation is performed on 3-hourly inputs.
-# - Units: degree celsius (°C).
-# - Projection: WGS64 (EPSG:4326).
+#   - Spatial extent: Covers Europe from northern Africa to the Ural Mountains, spanning the Atlantic Ocean in the west to Scandinavia in the north
+#     The domain corners are shown below (larger than the EURO-CORDEX domain):
+#          min_lon = -58.21
+#          max_lon = 74.15
+#          min_lat = 20.26
+#          max_lat = 75.30
+#   - Spatial resolution: 5.5 km x 5.5 km grid cells (30.25 km² per grid cell)
+#   - Temporal resolution: Aggregation is performed on 3-hourly inputs
+#   - Units: °C 
+#   - Projection: WGS64 (EPSG:4326)
+
+# Instructions:
+#   - Adjust file paths and directories to your local environment
+#   - Ensure temporary file management is handled correctly by the script
+###################################################################################################################################################
 
 # Set working directory
 setwd("~/D/2024/OPTforEU/")
@@ -80,8 +91,8 @@ for (i in seq_along(files)) {
 
 ### Seasonal Aggregation
 # List all monthly files ("MON") and calculate seasonal sums
-files.mon <- list.files("/media/vlad/Elements2/CERRA/raw/precip/", pattern = "MON", full.names = TRUE)
-name.seas <- "/media/vlad/Elements2/CERRA/raw/precip/precip_SEAS_1984-2021.nc"
+files.mon <- list.files("/media/vlad/Elements2/CERRA/raw/tair/", pattern = "MON", full.names = TRUE)
+name.seas <- "/media/vlad/Elements2/CERRA/raw/tair/tair_SEAS_1984-2021.nc"
 
 # Merge all monthly files into a single file and calculate seasonal sums
 system(paste0(
