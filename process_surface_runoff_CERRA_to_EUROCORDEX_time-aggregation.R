@@ -1,19 +1,19 @@
 ###################################################################################################################################################
-# Title: Script for aggregating CERRA 3-hourly Runoff data
+# Title: Script for aggregating CERRA 3-hourly Surface Runoff data
 
 # Date: 20th January 2025
 
 # Author: Vlad Alexandru AMIHĂESEI, MeteoRomania, National Meteorological Administration, Romania
 
-# Description: Processes 3-hourly runoff data from CERRA (Copernicus European Regional Reanalysis) files
+# Description: Processes 3-hourly Surface runoff data from CERRA (Copernicus European Regional Reanalysis) files
 #              Performs temporal aggregation to generate daily, monthly, yearly, and seasonal summaries
 #              Standardizes units and remaps the data to align with the EURO-CORDEX grid
 
-# Inputs: Directory: 3-hourly runoff data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/runoff/
+# Inputs: Directory: 3-hourly surface runoff data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/runoff/
 #                    EURO-CORDEX grid file: "CERRA_lonlatgrid.txt"
 
 # Outputs: NetCDF files for daily, monthly, yearly, and seasonal aggregated runoff data saved in same directory
-#          The naming convention for outputs follows the format: runoff_[TIMEFRAME]_[YEAR].nc
+#          The naming convention for outputs follows the format: surface_runoff_[TIMEFRAME]_[YEAR].nc
 
 # Prerequisites: CDO (Climate Data Operators) must be installed and accessible from the command line
 #                A valid EURO-CORDEX grid file (CERRA_lonlatgrid.txt)
