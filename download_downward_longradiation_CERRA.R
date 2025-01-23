@@ -23,6 +23,13 @@
 # Outputs: GRIB files for the variable "surface thermal radiation downwards" 
 #          Saved in the folder "nc/cerra/solar_downward_long/" with the naming 
 #          Format "solar_downward_long_03h_[year].grib"
+#          The downloaded data (output) has the following proprierties:
+#            1. Spatial extent : domain spans from northern Africa beyond the northern tip of Scandinavia
+#            2. Spatial resolution: 5.5 km x 5.5 km hence a grid box has an area of 30.25km
+#               In the west it ranges far into the Atlantic Ocean and in the east it reaches to the Ural Mountains. Herewith, it covers the entire area of Europe
+#            3. Temporal resolution: 3 hourly time step
+#            4. Units: J m-2
+#            5. Projection: Lambert Conformal Conic EPSG:9802
 
 # Prerequisites: A valid CDS API key configured using `ecmwfr`
 #                Ensure the required libraries (`ecmwfr`, `dplyr`) are installed
@@ -31,24 +38,13 @@
 #               Run the script to fetch and save the data locally
 ###################################################################################################################################################
 
-
-
-# ============================================================
-## The downloaded data (output) has the following proprierties:
-# 1. spatial extent : domain spans from northern Africa beyond the northern tip of Scandinavia
-# 2. spatial resolution: 5.5 km x 5.5 km hence a grid box has an area of 30.25km
-# In the west it ranges far into the Atlantic Ocean and in the east it reaches to the Ural Mountains. Herewith, it covers the entire area of Europe
-# 3. temporal resolution: 3 hourly time step
-# 4. units: J m-2
-# 5. projection: Lambert Conformal Conic EPSG:9802
-
 # Load the required libraries
-library(ecmwfr)  # Provides tools to interact with the Copernicus Climate Data Store (CDS) API
+library(ecmwfr)  # Provides tools to interact with the CDS API
 library(dplyr)   # Used for data manipulation, such as filtering and working with data frames
 
 # Set the CDS API key for authentication. Replace with your own key and user details
 # wf_set_key(
-#   service = "cds",                                  # Specifies the CDS service
+#   service = "cds",                                 # Specifies the CDS service
 #   key = "47b85274-0e3f-40fa-8b3d-7e2ef2294bd9",    # Your personal API key for accessing CDS
 #   user = "9924"                                    # Your user ID for the CDS service
 # )
@@ -78,8 +74,8 @@ for (i in 1:length(ani)) {  # Iterate over each remaining year in `ani`
   
   ## Define the request parameters for the CDS API
   request <- list(
-    "dataset_short_name" = "reanalysis-cerra-single-levels",          # CERRA reanalysis dataset for single levels
-    "variable" = "surface_thermal_radiation_downwards",               # Variable: surface thermal radiation downwards
+    "dataset_short_name" = "reanalysis-cerra-single-levels",         # CERRA reanalysis dataset for single levels
+    "variable" = "surface_thermal_radiation_downwards",              # Variable: surface thermal radiation downwards
     "data_type" = "reanalysis",                                      # Data type: reanalysis
     "product_type" = "forecast",                                     # Product type: forecast
     "year"  = ani[i],                                                # Year for the data request
