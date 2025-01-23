@@ -14,26 +14,26 @@ Please take a look below for more information on each script and visit the OptFo
 
 ## Brief description of each file...
 
-#### Scripts for Downloading CERRA climate variables
+## Scripts for Downloading CERRA climate variables...
 
 __Filename__: download_[EFMI_climate_variable]_CERRA.R
 
-#### This script automates the retrieval of CERRA reanalyses data for climate variables to be used in OptFor-EU. It uses the R programming language with the "ecmwfr" library to download the CERRA climate data. 
-#### The data is requested in 3-hour intervals from 1984 to 2021, excluding years for which the data has already been downloaded. 
-#### It:
-#### 1. Sets the Copernicus Data Store (CDS) API key for user authentication.
-#### 2. Scans the directory containing already downloaded  data to identify years for which data is missing.
-#### 3. Constructs a data request for each missing year, specifying parameters such as the variable (specific humidity), model level, 3-hourly time steps, and output format.
-#### 4. Sends the requests to the CDS API and saves the downloaded files in a specified folder with filenames reflecting the year and data resolution.
-#### The data is saved in GRIB format with filenames such as '[EFMI_climate_variable]_03h_1984.grib'.
+__Description__: Automates the retrieval of CERRA reanalyses data for climate variables to be used in OptFor-EU. Uses the R programming language with the "ecmwfr" library to download the CERRA climate data
+                 
+                 Data are requested in 3-hour intervals from 1984 to 2021, excluding years which have already been downloaded
 
-### Inputs:
-#### - Years of interest: 1984 to 2021
-#### - Existing files in the directory: "nc/cerra/ws"
-#### - CDS API key and user credentials
+                 It...
+                 1. Sets the Copernicus Data Store (CDS) API key for user authentication
+                 2. Scans the directory containing already downloaded data to identify years for which data is missing
+                 3. Constructs a data request for each missing year, specifying parameters such as the variable (specific humidity), model level, 3-hourly time steps, and output format
+                 4. Sends the requests to the CDS API and saves the downloaded files in a specified folder with filenames reflecting the year and data resolution
+                 Data are saved in GRIB format with filenames such as '[EFMI_climate_variable]_03h_1984.grib'
 
-### Outputs:
-#### - GRIB files for the climate variable saved in the folder "nc/cerra/[name_of_variable]" with the naming format "ws_[year].grib".
+__Inputs__: Years of interest: 1984 to 2021
+            Existing files in the directory: "nc/cerra/ws"
+            CDS API key and user credentials
+
+__Outputs__: GRIB files for the climate variable saved in the folder "nc/cerra/[name_of_variable]" with the naming format "ws_[year].grib"
 
 ### Prerequisites:
 #### - A valid CDS API key configured using `ecmwfr`.
@@ -42,6 +42,19 @@ __Filename__: download_[EFMI_climate_variable]_CERRA.R
 ### Instructions:
 #### - Replace the placeholder API key and user details with your own.
 #### - Run the script to fetch and save the data locally.
+# Brief description of each script file...
+
+## Scripts for downloading satellite data variables...
+
+__Filename__: Download_Satellite_Global_EFMI-FIRES_2001_2022_Monthly.py
+
+__Description__: Downloads data to calculate EFMI #7 Forest area damaged by fire
+
+__Inputs__: C3S Copernicus burnt area dataset from OLCI, at 300m resolution, monthly for 2017-2022, unitless [presence/absence of fire within cell]
+
+__Outputs__: Files named c3s_pixel_burned_area_v1_1_{year}_monthly.zip
+##
+
 
 
 #### Scripts for processing CERRA climate variables
