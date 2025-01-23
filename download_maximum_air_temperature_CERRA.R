@@ -1,11 +1,11 @@
 ###################################################################################################################################################
-# Title: Script for Downloading CERRA Maximum Air Temperature Data
+# Title: Script for Downloading CERRA Maximum 2m Temperature Data
 
 # Date: 10th December 2024
 
 # Author: Vlad Alexandru AMIHĂESEI, MeteoRomania, National Meteorological Administration, Romania
 
-# Description: Automates the retrieval of CERRA reanalyses data for the variable "maximum air temperature". 
+# Description: Automates the retrieval of CERRA reanalyses data for the variable "maximum 2m temperature since previous post-processing". 
 #              It uses the R programming language with the "ecmwfr" library to download the CERRA climate data.
 #              Data are requested in 3-hour intervals from 1984 to 2021, excluding years which have already been downloaded.
 #              Data are processed in reverse order for prioritization                 
@@ -17,17 +17,17 @@
 #              Data are saved in GRIB format with filenames such as '[EFMI_climate_variable]_03h_1984.grib'
 
 # Inputs: Years of interest: 1984 to 2021
-#         Existing files in the directory: "nc/cerra/maximum air temperature"
+#         Existing files in the directory: "nc/cerra/maximum 2m temperature"
 #         CDS API key and user credentials
 
 # Outputs: GRIB files for the variable "maximum air temperature" 
-#          Saved in the folder "nc/cerra/evapo" with the naming format "maxtemp_[year].grib" 
+#          Saved in the folder "nc/cerra/tmax" with the naming format "tmax_[year].grib" 
 #          The downloaded data (output) has the following proprierties:
 #            1. Spatial extent : domain spans from northern Africa beyond the northern tip of Scandinavia
 #            2. Spatial resolution: 5.5 km x 5.5 km hence a grid box has an area of 30.25km
 #               In the west it ranges far into the Atlantic Ocean and in the east it reaches to the Ural Mountains. Herewith, it covers the entire area of Europe
 #            3. Temporal resolution: 3 hourly time step
-#            4. Units: J m-2
+#            4. Units: K
 #            5. Projection: Lambert Conformal Conic EPSG:9802
 
 # Prerequisites: A valid CDS API key configured using `ecmwfr`
