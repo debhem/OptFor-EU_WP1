@@ -1,5 +1,5 @@
 ###################################################################################################################################################
-# Title: Script for Downloading CERRA Evaporation Data
+# Title: Script for Downloading CERRA Evaporation data
 
 # Date: 10th December 2024
 
