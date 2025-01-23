@@ -1,5 +1,5 @@
 ###################################################################################################################################################
-# Title: Script for processing CERRA Specific Humidity data
+# Title: Script for processing CERRA 3-hourly Specific Humidity data
 
 # Date: 20th January 2025
 
@@ -30,7 +30,7 @@
 #          max_lat = 75.30
 #   - Spatial resolution: 5.5 km x 5.5 km grid cells (30.25 km² per grid cell)
 #   - Temporal resolution: Aggregation is performed on 3-hourly inputs
-#   - Units: g of water vapour within a kg of air (g/kg)
+#   - Units: g/kg (g of water vapour within a kg of air)
 #   - Projection: WGS64 (EPSG:4326)
 
 # Instructions:
