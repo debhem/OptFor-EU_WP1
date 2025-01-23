@@ -12,16 +12,16 @@ Please take a look below for more information on each script and visit the OptFo
 
 +++
 
-## Brief description of each file...
+## Brief description of each file
 
 ## Scripts for Downloading CERRA climate variables...
 
 __Filename__: download_[EFMI_climate_variable]_CERRA.R
 
-__Description__: Automates the retrieval of CERRA reanalyses data for climate variables to be used in OptFor-EU. Uses the R programming language with the "ecmwfr" library to download the CERRA climate data
+__Description__: Automates the retrieval of CERRA reanalyses data for climate variables to be used in OptFor-EU. 
+                 Uses the R programming language with the "ecmwfr" library to download the CERRA climate data.
+                 Data are requested in 3-hour intervals from 1984 to 2021, excluding years which have already been downloaded.
                  
-                 Data are requested in 3-hour intervals from 1984 to 2021, excluding years which have already been downloaded
-
                  It...
                  1. Sets the Copernicus Data Store (CDS) API key for user authentication
                  2. Scans the directory containing already downloaded data to identify years for which data is missing
@@ -29,48 +29,36 @@ __Description__: Automates the retrieval of CERRA reanalyses data for climate va
                  4. Sends the requests to the CDS API and saves the downloaded files in a specified folder with filenames reflecting the year and data resolution
                  Data are saved in GRIB format with filenames such as '[EFMI_climate_variable]_03h_1984.grib'
 
-__Inputs__: Years of interest: 1984 to 2021
-            Existing files in the directory: "nc/cerra/ws"
+__Inputs__: Years of interest: 1984 to 2021.
+            Existing files in the directory: "nc/cerra/ws".
             CDS API key and user credentials
 
 __Outputs__: GRIB files for the climate variable saved in the folder "nc/cerra/[name_of_variable]" with the naming format "ws_[year].grib"
 
-### Prerequisites:
-#### - A valid CDS API key configured using `ecmwfr`.
-#### - Ensure the required libraries (`ecmwfr`, `dplyr`) are installed.
+__Prerequisites__: A valid CDS API key configured using `ecmwfr`.
+                   Ensure the required libraries (`ecmwfr`, `dplyr`) are installed.
 
-### Instructions:
-#### - Replace the placeholder API key and user details with your own.
-#### - Run the script to fetch and save the data locally.
-# Brief description of each script file...
-
-## Scripts for downloading satellite data variables...
-
-__Filename__: Download_Satellite_Global_EFMI-FIRES_2001_2022_Monthly.py
-
-__Description__: Downloads data to calculate EFMI #7 Forest area damaged by fire
-
-__Inputs__: C3S Copernicus burnt area dataset from OLCI, at 300m resolution, monthly for 2017-2022, unitless [presence/absence of fire within cell]
-
-__Outputs__: Files named c3s_pixel_burned_area_v1_1_{year}_monthly.zip
+__Instructions__: Replace the placeholder API key and user details with your own. 
+                  Run the script to fetch and save the data locally
 ##
 
+## Scripts for processing CERRA climate variables...
 
+__Filename__: process_[EFMI_climate_variable]_CERRA_to_EURO-CORDEX_1984-2021_MonthlyMean.R
 
-#### Scripts for processing CERRA climate variables
-#### process_[EFMI_climate_variable]_CERRA_to_EURO-CORDEX_1984-2021_MonthlyMean.R
-#### It processes hourly precipitation data from the CERRA (Copernicus European Regional Reanalysis) dataset.
-#### It performs temporal aggregation to generate daily, monthly, yearly, and seasonal summaries.
-#### The script also standardizes units and remaps the data to align with the EURO-CORDEX grid.
-### Inputs:
-####  - Hourly runoff data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/runoff/.
-####- EURO-CORDEX-compatible grid file: CERRA_lonlatgrid.txt.
-### Outputs:
-####   - NetCDF files for daily, monthly, yearly, and seasonal aggregated runoff data saved in the same directory.
-#### - The naming convention for outputs follows the format: [climate_variable]_[TIMEFRAME]_[YEAR].nc.
-### Prerequisites:
-####   - CDO (Climate Data Operators) must be installed and accessible from the command line.
-#### - A valid EURO-CORDEX grid file (CERRA_lonlatgrid.txt).
+__Description__: Processes hourly precipitation data from the CERRA dataset.
+                 Performs temporal aggregation to generate daily, monthly, yearly, and seasonal summaries.
+                 Standardizes units and remaps the data to align with the EURO-CORDEX grid
+
+__Inputs__: Hourly runoff data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/runoff/.
+            EURO-CORDEX-compatible grid file: CERRA_lonlatgrid.txt
+            
+__Outputs__: NetCDF files for daily, monthly, yearly, and seasonal aggregated runoff data saved in the same directory.
+             The naming convention for outputs follows the format: [climate_variable]_[TIMEFRAME]_[YEAR].nc
+             
+__Prerequisites__: CDO (Climate Data Operators) must be installed and accessible from the command line.
+                   A valid EURO-CORDEX grid file (CERRA_lonlatgrid.txt)
+##
 
 #### ============================================================
 #### crop_[EFMI_climate_variable]_CSA_CERRA_monthly.R
