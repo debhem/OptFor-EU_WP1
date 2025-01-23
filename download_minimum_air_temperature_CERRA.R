@@ -5,7 +5,7 @@
 
 # Author: Vlad Alexandru AMIHĂESEI, MeteoRomania, National Meteorological Administration, Romania
 
-# Description: Automates the retrieval of CERRA reanalyses data for the variable "minimum 2m temperature since previous post-processing"
+# Description: Automates the retrieval of CERRA reanalyses data for the variable "minimum 2m temperature"
 #              It uses the R programming language with the "ecmwfr" library to download the CERRA climate data
 #              Data are requested in 3-hour intervals from 1984 to 2021, excluding years which have already been downloaded
 #              Data are processed in reverse order for prioritization                 
