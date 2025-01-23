@@ -1,11 +1,11 @@
 ###################################################################################################################################################
-# Title: Script for Downloading CERRA Minimum Air Temperature Data
+# Title: Script for Downloading CERRA Maximum Air Temperature Data
 
 # Date: 10th December 2024
 
 # Author: Vlad Alexandru AMIHĂESEI, MeteoRomania, National Meteorological Administration, Romania
 
-# Description: Automates the retrieval of CERRA reanalyses data for the variable "minimum air temperature". 
+# Description: Automates the retrieval of CERRA reanalyses data for the variable "maximum air temperature". 
 #              It uses the R programming language with the "ecmwfr" library to download the CERRA climate data.
 #              Data are requested in 3-hour intervals from 1984 to 2021, excluding years which have already been downloaded.
 #              Data are processed in reverse order for prioritization                 
@@ -17,11 +17,11 @@
 #              Data are saved in GRIB format with filenames such as '[EFMI_climate_variable]_03h_1984.grib'
 
 # Inputs: Years of interest: 1984 to 2021
-#         Existing files in the directory: "nc/cerra/minimum air temperature"
+#         Existing files in the directory: "nc/cerra/maximum air temperature"
 #         CDS API key and user credentials
 
-# Outputs: GRIB files for the variable "minimum air temperature" 
-#          Saved in the folder "nc/cerra/evapo" with the naming format "mintemp_[year].grib" 
+# Outputs: GRIB files for the variable "maximum air temperature" 
+#          Saved in the folder "nc/cerra/evapo" with the naming format "maxtemp_[year].grib" 
 #          The downloaded data (output) has the following proprierties:
 #            1. Spatial extent : domain spans from northern Africa beyond the northern tip of Scandinavia
 #            2. Spatial resolution: 5.5 km x 5.5 km hence a grid box has an area of 30.25km
