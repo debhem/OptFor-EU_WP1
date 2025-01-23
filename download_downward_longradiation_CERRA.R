@@ -3,31 +3,34 @@
 # Author: [MeteoRO]
 # Date: [11/12/2024]
 #
-# Description:
-# This script automates the retrieval of CERRA reanalysis data 
-# for the variable "surface thermal radiation downwards"
-# The data is requested for years 1984 to 2021 at 3-hour intervals
-# It excludes years for which the data has already been downloaded
-# The years are processed in reverse order for prioritization
-#
-# Inputs:
-# - Years of interest: 1984 to 2021
-# - Existing files in the directory: "nc/cerra/solar_downward_long/"
-# - CDS API key and user credentials
-#
-# Outputs:
-# - GRIB files for the variable "surface thermal radiation downwards" 
+__Description__: Automates the retrieval of CERRA reanalyses data for the variable "surface thermal radiation downwards". 
+                 It uses the R programming language with the "ecmwfr" library to download the CERRA climate data.
+                 Data are requested in 3-hour intervals from 1984 to 2021, excluding years which have already been downloaded.
+                 Data are processed in reverse order for prioritization
+                 
+                 It...
+                 1. Sets the Copernicus Data Store (CDS) API key for user authentication
+                 2. Scans the directory containing already downloaded data to identify years for which data is missing
+                 3. Constructs a data request for each missing year, specifying parameters such as the variable (specific humidity), model level, 3-hourly time steps, and output format
+                 4. Sends the requests to the CDS API and saves the downloaded files in a specified folder with filenames reflecting the year and data resolution
+                 Data are saved in GRIB format with filenames such as '[EFMI_climate_variable]_03h_1984.grib'
+
+__Inputs__: Years of interest: 1984 to 2021.
+            Existing files in the directory: "nc/cerra/ws".
+            CDS API key and user credentials
+
+__Outputs__: GRIB files for the variable "surface thermal radiation downwards" 
 #   saved in the folder "nc/cerra/solar_downward_long/" with the naming 
 #   format "solar_downward_long_03h_[year].grib"
-#
-# Prerequisites:
-# - A valid CDS API key configured using `ecmwfr`
-# - Ensure the required libraries (`ecmwfr`, `dplyr`) are installed
-#
-# Instructions:
-# - Replace placeholder API key and user details with your own
-# - Run the script to fetch and save the data locally
-#
+__Prerequisites__: A valid CDS API key configured using `ecmwfr`.
+                   Ensure the required libraries (`ecmwfr`, `dplyr`) are installed.
+
+__Instructions__: Replace the placeholder API key and user details with your own. 
+                  Run the script to fetch and save the data locally
+##
+
+
+
 # ============================================================
 ## The downloaded data (output) has the following proprierties:
 # 1. spatial extent : domain spans from northern Africa beyond the northern tip of Scandinavia
