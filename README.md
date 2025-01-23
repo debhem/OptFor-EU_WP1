@@ -8,7 +8,7 @@ Please take a look below for more information on each script and visit the OptFo
 
 #### Authors: [Alex Dumitrescu; Vlad Amihaesei- MeteoRo]
 
-#### Date: [10/12/2024]
+#### Date: 10th December 2024
 
 +++
 
