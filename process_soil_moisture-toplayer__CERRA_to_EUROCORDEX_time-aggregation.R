@@ -1,5 +1,5 @@
 ###################################################################################################################################################
-# Title: Script for processing CERRA Soil Moisture data
+# Title: Script for processing CERRA 3-hourly Soil Moisture data
 
 # Date: 20th January 2025
 
@@ -13,10 +13,10 @@
 #          Temporal resolution: 3-hourly data ("03h" included in file names)
 
 # Outputs: NetCDF files for daily, monthly, yearly, and seasonal aggregated data
-#          Daily specific humidity (NetCDF): "*_DAY.nc"
-#          Monthly specific humidity (NetCDF): "*_MON.nc"
-#          Yearly specific humidity (NetCDF): "*_YEAR.nc"
-#          Seasonal mean specific humidity (NetCDF): "specific_humidity_SEAS_1984-2021.nc"
+#          Daily soil moisture (NetCDF): "*_DAY.nc"
+#          Monthly soil moisture (NetCDF): "*_MON.nc"
+#          Yearly soil moisture (NetCDF): "*_YEAR.nc"
+#          Seasonal mean soil moisture (NetCDF): "soilmoisture-top_SEAS_1984-2021.nc"
 
 # Prerequisites: CDO (Climate Data Operators) must be installed and accessible from the command line
 #                Required permissions to read/write in the specified directories
@@ -36,7 +36,7 @@
 #          max_lat = 75.30
 #   - Spatial resolution: 5.5 km x 5.5 km grid cells (30.25 km² per grid cell)
 #   - Temporal resolution: Aggregation is performed on 3-hourly inputs
-#   - Units: millimeters (mm)
+#   - Units: mm
 #   - Projection: WGS64 (EPSG:4326)
 
 # Instructions:
