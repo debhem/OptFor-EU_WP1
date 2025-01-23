@@ -1,20 +1,20 @@
 ###################################################################################################################################################
-# Title: Script to aggregate CERRA hourly Precipitation data
+# Title: Script to aggregate CERRA 3-hourly Precipitation data
 
 # Date: 20th January 2025
 
 # Author: Vlad Alexandru AMIHĂESEI, MeteoRomania, National Meteorological Administration, Romania
 
-# Description: Processes hourly precipitation data from the CERRA (Copernicus European Regional Reanalysis) dataset
+# Description: Processes 3-hourly precipitation data from the CERRA (Copernicus European Regional Reanalysis) dataset
 #              Performs temporal aggregation to generate daily, monthly, yearly, and seasonal summaries
-#              Standardizes units and remaps the data to align with the EURO-CORDEX gridProduces EFMI #8 Changes in Tree Cover Density
+#              Standardizes units and remaps the data to align with the EURO-CORDEX grid
 #              Resamples spatial resolution and subsets to the EURO CORDEX region domain
 
-# Inputs: Hourly runoff data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/runoff/
+# Inputs: Hourly precipitation data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/precip/
 #         EURO-CORDEX-compatible grid file: CERRA_lonlatgrid.txt
 
 # Outputs: NetCDF files for daily, monthly, yearly, and seasonal aggregated runoff data saved in the same directory
-#          Note: The naming convention of outputs follows the format: runoff_[TIMEFRAME]_[YEAR].nc
+#          Note: The naming convention of outputs follows the format: precip_[TIMEFRAME]_[YEAR].nc
 
 # Prerequisites: CDO (Climate Data Operators) must be installed and accessible from the command line
 #                A valid EURO-CORDEX grid file is needed (CERRA_lonlatgrid.txt)
@@ -28,7 +28,7 @@
 #          max_lat = 75.30
 #   - Spatial resolution: 5.5 km x 5.5 km grid cells (30.25 km² per grid cell)
 #   - Temporal resolution: Aggregation is performed on 3-hourly inputs
-#   - Units: millimeters (mm)
+#   - Units: mm
 #   - Projection: WGS64 (EPSG:4326)
 
 # Instructions:
