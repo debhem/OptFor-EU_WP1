@@ -12,12 +12,12 @@
 #              It...
 #                1. Sets the Copernicus Data Store (CDS) API key for user authentication
 #                2. Scans the directory containing already downloaded data to identify years for which data is missing
-#                3. Constructs a data request for each missing year, specifying parameters such as the variable (specific humidity), model level, 3-hourly time steps, and output format
+#                3. Constructs a data request for each missing year, specifying parameters 3-hourly time steps, and output format
 #                4. Sends the requests to the CDS API and saves the downloaded files in a specified folder with filenames reflecting the year and data resolution
 #              Data are saved in GRIB format with filenames such as '[EFMI_climate_variable]_03h_1984.grib'
 
 # Inputs: Years of interest: 1984 to 2021
-#         Existing files in the directory: "nc/cerra/maximum 2m temperature"
+#         Existing files in the directory: "nc/cerra/tmax"
 #         CDS API key and user credentials
 
 # Outputs: GRIB files for the variable "maximum air temperature" 
@@ -27,7 +27,7 @@
 #            2. Spatial resolution: 5.5 km x 5.5 km hence a grid box has an area of 30.25km
 #               In the west it ranges far into the Atlantic Ocean and in the east it reaches to the Ural Mountains. Herewith, it covers the entire area of Europe
 #            3. Temporal resolution: 3 hourly time step
-#            4. Units: degree celsius (°C)
+#            4. Units: K (kelvin)
 #            5. Projection: Lambert Conformal Conic EPSG:9802
 
 # Prerequisites: A valid CDS API key configured using `ecmwfr`
@@ -58,12 +58,6 @@ library(dplyr)  # For data manipulation (e.g., filtering, transforming data)
 
 # Define the range of years for which data is required
 ani <- 1984:2021  # Years from 1984 to 2021
-
-# (Optional) Check which years have already been downloaded (currently commented out)
-# ani_desc <- 
-#   list.files("nc/cerra/precip/", pattern = "*.grib") |>
-#   strsplit("_|\\.") %>% do.call(rbind,.) |> as_tibble() |> select(V3) |> unlist() |> as.numeric()
-# ani <- ani[!ani %in% ani_desc]
 
 # Loop through the years that still need data
 for (i in 1:length(ani)) {
