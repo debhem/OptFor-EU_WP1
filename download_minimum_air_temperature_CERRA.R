@@ -1,5 +1,5 @@
 ###################################################################################################################################################
-# Title: Script for Downloading CERRA Minimum 2m Temperature Data
+# Title: Script for Downloading CERRA Minimum 2m Temperature data
 
 # Date: 10th December 2024
 
