@@ -1,5 +1,5 @@
 ###################################################################################################################################################
-# Title: Script to aggregate Hourly Runoff Data from CERRA
+# Title: Script to aggregate CERRA Hourly Runoff Data
 
 # Date: 20th January 2025
 
