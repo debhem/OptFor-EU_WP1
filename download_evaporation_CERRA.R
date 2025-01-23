@@ -12,7 +12,7 @@
 #              It...
 #                1. Sets the Copernicus Data Store (CDS) API key for user authentication
 #                2. Scans the directory containing already downloaded data to identify years for which data is missing
-#                3. Constructs a data request for each missing year, specifying parameters such as the variable (specific humidity), model level, 3-hourly time steps, and output format
+#                3. Constructs a data request for each missing year,  3-hourly time steps, and output format
 #                4. Sends the requests to the CDS API and saves the downloaded files in a specified folder with filenames reflecting the year and data resolution
 #              Data are saved in GRIB format with filenames such as '[EFMI_climate_variable]_03h_1984.grib'
 
@@ -27,7 +27,7 @@
 #            2. Spatial resolution: 5.5 km x 5.5 km hence a grid box has an area of 30.25km
 #               In the west it ranges far into the Atlantic Ocean and in the east it reaches to the Ural Mountains. Herewith, it covers the entire area of Europe
 #            3. Temporal resolution: 3 hourly time step
-#            4. Units: J m-2
+#            4. Units: kg m-2 
 #            5. Projection: Lambert Conformal Conic EPSG:9802
 
 # Prerequisites: A valid CDS API key configured using `ecmwfr`
