@@ -1,15 +1,15 @@
 ###################################################################################################################################################
-# Title: Script for aggregating CERRA hourly Runoff data
+# Title: Script for aggregating CERRA 3-hourly Runoff data
 
 # Date: 20th January 2025
 
 # Author: Vlad Alexandru AMIHĂESEI, MeteoRomania, National Meteorological Administration, Romania
 
-# Description: Processes hourly runoff data from CERRA (Copernicus European Regional Reanalysis) files
+# Description: Processes 3-hourly runoff data from CERRA (Copernicus European Regional Reanalysis) files
 #              Performs temporal aggregation to generate daily, monthly, yearly, and seasonal summaries
 #              Standardizes units and remaps the data to align with the EURO-CORDEX grid
 
-# Inputs: Directory: Hourly runoff data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/runoff/
+# Inputs: Directory: 3-hourly runoff data files in GRIB format located in the directory /media/vlad/Elements2/CERRA/raw/runoff/
 #                    EURO-CORDEX grid file: "CERRA_lonlatgrid.txt"
 
 # Outputs: NetCDF files for daily, monthly, yearly, and seasonal aggregated runoff data saved in same directory
@@ -27,7 +27,7 @@
 #          max_lat = 75.30
 #   - Spatial resolution: 5.5 km x 5.5 km grid cells (30.25 km² per grid cell)
 #   - Temporal resolution: Aggregation is performed on 3-hourly inputs
-#   - Units: millimeters (mm)
+#   - Units: mm
 #   - Projection: WGS64 (EPSG:4326)
 
 # Instructions:
