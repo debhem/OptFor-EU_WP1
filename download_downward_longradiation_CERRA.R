@@ -5,9 +5,9 @@
 
 # Author: Vlad Alexandru AMIHĂESEI, MeteoRomania, National Meteorological Administration, Romania
 
-# Description: Automates the retrieval of CERRA reanalyses data for the variable "surface thermal radiation downwards". 
-#              It uses the R programming language with the "ecmwfr" library to download the CERRA climate data.
-#              Data are requested in 3-hour intervals from 1984 to 2021, excluding years which have already been downloaded.
+# Description: Automates the retrieval of CERRA reanalyses data for the variable "surface thermal radiation downwards"
+#              It uses the R programming language with the "ecmwfr" library to download the CERRA climate data
+#              Data are requested in 3-hour intervals from 1984 to 2021, excluding years which have already been downloaded
 #              Data are processed in reverse order for prioritization                 
 #              It...
 #                1. Sets the Copernicus Data Store (CDS) API key for user authentication
