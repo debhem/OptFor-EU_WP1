@@ -1,5 +1,5 @@
 ###################################################################################################################################################
-# Title: Script for Downloading CERRA Longwave Radiation Data
+# Title: Script for Downloading CERRA Longwave Radiation data
 
 # Date: 11th December 2024
 
