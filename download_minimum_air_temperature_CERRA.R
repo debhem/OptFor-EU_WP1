@@ -27,7 +27,7 @@
 #            2. Spatial resolution: 5.5 km x 5.5 km hence a grid box has an area of 30.25km
 #               In the west it ranges far into the Atlantic Ocean and in the east it reaches to the Ural Mountains. Herewith, it covers the entire area of Europe
 #            3. Temporal resolution: 3 hourly time step
-#            4. Units: J m-2
+#            4. Units: K
 #            5. Projection: Lambert Conformal Conic EPSG:9802
 
 # Prerequisites: A valid CDS API key configured using `ecmwfr`
