@@ -27,7 +27,7 @@
 #            1. Spatial extent : EURO-CORDEX RCM domain across Europe (regridded to regular lat/long grid)
 #            2. Spatial resolution: EUR-11 resolution 0.11 degree, ~12.5 x 12.5 km gridbox
 #            3. Temporal resolution: monthly mean
-#            4. Units: W m-2
+#            4. Units: Pa
 #            5. Projection/coordinate system/reference code: EPSG:4326 (based on WGS84)
 
 # Instructions: See Download_Instruction.md file for guidance on downloading these data from the CDS
