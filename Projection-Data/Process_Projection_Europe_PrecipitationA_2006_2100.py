@@ -68,16 +68,16 @@ def regrid(grid, infile, outfile):
 def main():
    # Location of the input EURO-CORDEX HIRHAM5 precipitation data file/s
    # Assuming input file is already concatenated time series, if 5-year chunks either concatenate to single time series then regrid or regrid then concatenate
-   evap_input = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/precip_mon/precip_mon.nc' # Change filenames to correct RCP and MODEL
+   precip_input = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/precip_mon/precip_mon.nc' # Change filenames to correct RCP and MODEL
 
    # Location of the processed, output EURO-CORDEX HIRHAM5 evaporation NetCDF data file
-   evap_output = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/precip_europe_HIRHAM5_RCP26_mon_2006_2100.nc'
+   precip_output = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/precip_europe_HIRHAM5_RCP26_mon_2006_2100.nc'
 
    # Location of the reference ERA5_Land lat/long coordinate file used to regrid the rotated polar EURO-CORDEX data
    latlong_grid = '/path/to/ERA5_Land/era5_land_evap_targetgrid.nc'
 
     # regrid the input file
-    regrid(grid=latlong_grid, infile=evap_input, outfile=evap_output)
+    regrid(grid=latlong_grid, infile=precip_input, outfile=precip_output)
 
    # *** If needed *** Concatenate files and save single NetCDF file
    ## filepath_in = "/path/to/EURO-CORDEX/RCP26/HIRHAM5/precip_mon/" # Change path name to correct RCP and MODEL
