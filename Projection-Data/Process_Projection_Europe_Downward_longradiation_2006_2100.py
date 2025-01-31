@@ -16,8 +16,8 @@
 # Inputs: Years of interest: 2006 to 2100
 #         EURO-CORDEX RCM climate projection data for monthly mean Downward longwave radiation
 #            - Downloaded as 'Surface thermal radiation downward' in W m-2, see https://cds.climate.copernicus.eu/datasets/projections-cordex-domains-single-levels?tab=overview
-#            - With the naming format (for data in 5-year chunks) is "/path/to/EURO-CORDEX/RCP26/HIRHAM5/downrad_mon/downrad_europe_[MODEL]_[SCENARIO]_mon_2006_2100.nc" 
-#                 - Or if time series are already concatenated the naming format is "/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/downrad_europe_[MODEL]_[SCENARIO]_mon_2006_2100.nc" 
+#            - With the naming format (for data in 5-year chunks) is "/path/to/EURO-CORDEX/RCP26/HIRHAM5/downlong_mon/downlong_europe_[MODEL]_[SCENARIO]_mon_2006_2100.nc" 
+#                 - Or if time series are already concatenated the naming format is "/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/downlong_europe_[MODEL]_[SCENARIO]_mon_2006_2100.nc" 
 #            - For 2 RCM - HIRHAM5 and RACMO22E
 #            - And 3 future scenarios - RCP26, RCP45, RCP85
 
@@ -44,7 +44,7 @@ import netCDF
 # *** If needed *** If data have been downloaded from CDS it will be in 5-year time chunks, these will need concatenating into a single NetCDF file
    ## The function 'concatenate_input_files(files, file_conc) does the following...
    ## Concatenate data files from saved folder 'files' e.g...
-   ## files = /path/to/EURO-CORDEX/RCP85/HIRHAM5/downrad_mon/
+   ## files = /path/to/EURO-CORDEX/RCP85/HIRHAM5/downlong_mon/
    ## Save as single NetCDF file 'file_conc' e.g...
    ## file_conc = /path/to/EURO-CORDEX/RCP85/HIRHAM5/concat/
    ## To run this function remove commented out code in def concatenate_input_files(files, file_conc): and the call to this in def main() below
@@ -66,27 +66,27 @@ def regrid(grid, infile, outfile):
 
 
 def main():
-   # Location of the input EURO-CORDEX HIRHAM5 precipitation data file/s
+   # Location of the input EURO-CORDEX HIRHAM5 downward longwave radiation data file/s
    # Assuming input file is already concatenated time series, if 5-year chunks either concatenate to single time series then regrid or regrid then concatenate
-   evap_input = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/downrad_mon/downrad_mon.nc' # Change filenames to correct RCP and MODEL
+   downlong_input = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/downlong_mon/downlong_mon.nc' # Change filenames to correct RCP and MODEL
 
    # Location of the processed, output EURO-CORDEX HIRHAM5 Downward longwave radiation NetCDF data file
-   evap_output = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/downrad_europe_HIRHAM5_RCP26_mon_2006_2100.nc'
+   downlong_output = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/downlong_europe_HIRHAM5_RCP26_mon_2006_2100.nc'
 
    # Location of the reference ERA5_Land lat/long coordinate file used to regrid the rotated polar EURO-CORDEX data
    latlong_grid = '/path/to/ERA5_Land/era5_land_evap_targetgrid.nc' # Can be any ERA5_Land .nc file
 
     # regrid the input file
-    regrid(grid=latlong_grid, infile=downrad_input, outfile=downrad_output)
+    regrid(grid=latlong_grid, infile=downlong_input, outfile=downlong_output)
 
    # *** If needed *** Concatenate files and save single NetCDF file
-   ## filepath_in = "/path/to/EURO-CORDEX/RCP26/HIRHAM5/downrad_mon/" # Change path name to correct RCP and MODEL
-   ## filenames = glob.glob(f"{filepath_in}downrad_HIRHAM5_RCP26_*.nc") # Change filenames to correct MODEL and RCP
-   ## concatenate_input_files(files=filenames, file_conc=precip_output)
+   ## filepath_in = "/path/to/EURO-CORDEX/RCP26/HIRHAM5/downlong_mon/" # Change path name to correct RCP and MODEL
+   ## filenames = glob.glob(f"{filepath_in}downlong_HIRHAM5_RCP26_*.nc") # Change filenames to correct MODEL and RCP
+   ## concatenate_input_files(files=filenames, file_conc=downlong_output)
 
     # Close datasets
-    downrad_output.close()
-    downrad_input.close()
+    downlong_output.close()
+    downlong_input.close()
 
 if __name__ == '__main__':
     main()
