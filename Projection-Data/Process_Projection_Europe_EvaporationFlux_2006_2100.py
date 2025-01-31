@@ -15,8 +15,11 @@
 
 # Inputs: Years of interest: 2006 to 2100
 #         EURO-CORDEX RCM climate projection data for monthly mean evaporation
-#            - for 2 RCM - HIRHAM5 and RACMO22E
-#            - and 3 future scenarios - RCP26, RCP45, RCP85
+#            - Downloaded as 'Mean evaporation flux' in kg m-2 s-1, see https://cds.climate.copernicus.eu/datasets/projections-cordex-domains-single-levels?tab=overview
+#            - With the naming format (for data in 5-year chunks) is "/path/to/EURO-CORDEX/RCP26/HIRHAM5/evap_mon/evap_europe_[MODEL]_[SCENARIO]_mon_2006_2100.nc" 
+#                 - Or if time series are already concatenated the naming format is "/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/evap_europe_[MODEL]_[SCENARIO]_mon_2006_2100.nc" 
+#            - For 2 RCM - HIRHAM5 and RACMO22E
+#            - And 3 future scenarios - RCP26, RCP45, RCP85
 
 # Outputs: NetCDF time series files (2006-2100) for the variable "evaporation" 
 #          With the naming format "/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/evap_europe_[MODEL]_[SCENARIO]_mon_2006_2100.nc" 
@@ -24,7 +27,7 @@
 #            1. Spatial extent : EURO-CORDEX RCM domain across Europe (regridded to regular lat/long grid)
 #            2. Spatial resolution: EUR-11 resolution 0.11 degree, ~12.5 x 12.5 km gridbox
 #            3. Temporal resolution: monthly mean
-#            4. Units: kg m-2 
+#            4. Units: kg m-2 s-1
 #            5. Projection/coordinate system/reference code: EPSG:4326 (based on WGS84)
 
 # Instructions: See Download_Instruction.md file for guidance on downloading these data from the CDS
@@ -41,7 +44,7 @@ import netCDF
 # *** If needed *** If data have been downloaded from CDS it will be in 5-year time chunks, these will need concatenating into a single NetCDF file
    ## The function 'concatenate_input_files(files, file_conc) does the following...
    ## Concatenate data files from saved folder 'files' e.g...
-   ## files = /path/to/EURO-CORDEX/RCP85/HIRHAM5/evap_monthly/
+   ## files = /path/to/EURO-CORDEX/RCP85/HIRHAM5/evap_mon/
    ## Save as single NetCDF file 'file_conc' e.g...
    ## file_conc = /path/to/EURO-CORDEX/RCP85/HIRHAM5/concat/
    ## To run this function remove commented out code in def concatenate_input_files(files, file_conc): and the call to this in def main() below
@@ -57,32 +60,33 @@ import netCDF
 # If the time series of data are available as a single NetCDF file continue below...
 
 # Regrid the native EURO-CORDEX rotated polar coordinate system to regular lat/long using ERA5_Land file 'latlong_grid' as template
-def regrid(infile, grid, outfile):
+def regrid(grid, infile, outfile):
     cdo = Cdo()
     cdo.remapbil(grid, input=infile, output=outfile) # Performs bilinear interpolation to regrid the EURO-CORDEX data to the ERA5-Land grid
 
 
 def main():
-   # Location of the input EURO-CORDEX HIRHAM5 evaporation data file
-   evap_input_nc = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/evap_monthly_in.nc'
+   # Location of the input EURO-CORDEX HIRHAM5 evaporation data file/s
+   # Assuming input file is already concatenated time series, if 5-year chunks either concatenate to single time series then regrid or regrid then concatenate
+   evap_input = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/evap_mon/evap_mon.nc' # Change filenames to correct RCP and MODEL
 
    # Location of the processed, output EURO-CORDEX HIRHAM5 evaporation NetCDF data file
-   evap_output_nc = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/evap_europe_HIRHAM5_RCP26_mon_2006_2100.nc'
+   evap_output = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/evap_europe_HIRHAM5_RCP26_mon_2006_2100.nc'
 
    # Location of the reference ERA5_Land lat/long coordinate file used to regrid the rotated polar EURO-CORDEX data
    latlong_grid = '/path/to/ERA5_Land/era5_land_evap_targetgrid.nc'
 
-   # *** If needed *** Concatenate files and save single NetCDF file
-   ## filepath_in = "/path/to/EURO-CORDEX/RCP26/HIRHAM5/evap_monthly/" # Change path name to correct RCP, MODEL and variable
-   ## filenames = glob.glob(f"{filepath_in}evap_HIRHAM5_RCP26_*.nc") # Change filenames to correct variable, model and RCP
-   ## concatenate_input_files(files=filenames, file_conc=evap_input.nc) # Change filenames to correct variable
-
     # regrid the input file
-    regrid(infile=evap_input_nc, grid=latlong_grid, outfile=evap_output_nc)
+    regrid(grid=latlong_grid, infile=evap_input, outfile=evap_output)
+
+   # *** If needed *** Concatenate files and save single NetCDF file
+   ## filepath_in = "/path/to/EURO-CORDEX/RCP26/HIRHAM5/evap_mon/" # Change path name to correct RCP and MODEL
+   ## filenames = glob.glob(f"{filepath_in}evap_HIRHAM5_RCP26_*.nc") # Change filenames to correct MODEL and RCP
+   ## concatenate_input_files(files=filenames, file_conc=evap_output)
 
     # Close datasets
-    evap_output_nc.close()
-    evap_input_nc.close()
+    evap_output.close()
+    evap_input.close()
 
 if __name__ == '__main__':
     main()
