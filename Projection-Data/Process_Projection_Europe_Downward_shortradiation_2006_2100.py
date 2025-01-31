@@ -1,11 +1,11 @@
 ###################################################################################################################################################
-# Title: Script for Concatenating and Regridding Future Climate Scenarios of EURO-CORDEX Downward longwave radiation data
+# Title: Script for Concatenating and Regridding Future Climate Scenarios of EURO-CORDEX Downward shortwave radiation data
 
 # Date: 20th January 2025
 
 # Author: Dr Deborah Hemming and Dr Murk Memon, Met Office Hadley Centre, Met Office, UK
 
-# Description: Code to concatenate (if needed) and regrid monthly mean future projection data from EURO-CORDEX regional climate models (RCM) for the variable "Downward longwave radiation"
+# Description: Code to concatenate (if needed) and regrid monthly mean future projection data from EURO-CORDEX regional climate models (RCM) for the variable "Downward shortwave radiation"
 #              Uses python programming language with the Climate Data Operators - cdo software (https://code.mpimet.mpg.de/projects/cdo)
 #              Future projections of climate variables from 2 RCM (HIRHAM5 and RACMO22E) and 3 future scenarios (RCP26, RCP45, RCP85) are used in OptFor-EU
 #              Data can be downloaded from the Copernicus CLimate Data Store (CDS) using guidance provided in the Download_Instructions.md file (provided in this repository)
@@ -15,14 +15,14 @@
 
 # Inputs: Years of interest: 2006 to 2100
 #         EURO-CORDEX RCM climate projection data for monthly mean Downward longwave radiation
-#            - Downloaded as 'Surface thermal radiation downward' in W m-2, see https://cds.climate.copernicus.eu/datasets/projections-cordex-domains-single-levels?tab=overview
-#            - With the naming format (for data in 5-year chunks) is "/path/to/EURO-CORDEX/RCP26/HIRHAM5/downrad_mon/downrad_europe_[MODEL]_[SCENARIO]_mon_2006_2100.nc" 
-#                 - Or if time series are already concatenated the naming format is "/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/downrad_europe_[MODEL]_[SCENARIO]_mon_2006_2100.nc" 
+#            - Downloaded as 'Surface solar radiation downward' in W m-2, see https://cds.climate.copernicus.eu/datasets/projections-cordex-domains-single-levels?tab=overview
+#            - With the naming format (for data in 5-year chunks) is "/path/to/EURO-CORDEX/RCP26/HIRHAM5/downshortrad_mon/downshort_europe_[MODEL]_[SCENARIO]_mon_2006_2100.nc" 
+#                 - Or if time series are already concatenated the naming format is "/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/downshort_europe_[MODEL]_[SCENARIO]_mon_2006_2100.nc" 
 #            - For 2 RCM - HIRHAM5 and RACMO22E
 #            - And 3 future scenarios - RCP26, RCP45, RCP85
 
-# Outputs: NetCDF time series files (2006-2100) for the variable "Downward longwave radiation" 
-#          With the naming format "/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/downlong_europe_[MODEL]_[SCENARIO]_mon_2006_2100.nc" 
+# Outputs: NetCDF time series files (2006-2100) for the variable "Downward shortwave radiation" 
+#          With the naming format "/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/downshort_europe_[MODEL]_[SCENARIO]_mon_2006_2100.nc" 
 #          The downloaded data (output) has the following proprierties:
 #            1. Spatial extent : EURO-CORDEX RCM domain across Europe (regridded to regular lat/long grid)
 #            2. Spatial resolution: EUR-11 resolution 0.11 degree, ~12.5 x 12.5 km gridbox
@@ -44,7 +44,7 @@ import netCDF
 # *** If needed *** If data have been downloaded from CDS it will be in 5-year time chunks, these will need concatenating into a single NetCDF file
    ## The function 'concatenate_input_files(files, file_conc) does the following...
    ## Concatenate data files from saved folder 'files' e.g...
-   ## files = /path/to/EURO-CORDEX/RCP85/HIRHAM5/downrad_mon/
+   ## files = /path/to/EURO-CORDEX/RCP85/HIRHAM5/downshort_mon/
    ## Save as single NetCDF file 'file_conc' e.g...
    ## file_conc = /path/to/EURO-CORDEX/RCP85/HIRHAM5/concat/
    ## To run this function remove commented out code in def concatenate_input_files(files, file_conc): and the call to this in def main() below
@@ -68,25 +68,25 @@ def regrid(grid, infile, outfile):
 def main():
    # Location of the input EURO-CORDEX HIRHAM5 precipitation data file/s
    # Assuming input file is already concatenated time series, if 5-year chunks either concatenate to single time series then regrid or regrid then concatenate
-   evap_input = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/downrad_mon/downrad_mon.nc' # Change filenames to correct RCP and MODEL
+   downshort_input = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/downshort_mon/downshort_mon.nc' # Change filenames to correct RCP and MODEL
 
-   # Location of the processed, output EURO-CORDEX HIRHAM5 Downward longwave radiation NetCDF data file
-   evap_output = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/downrad_europe_HIRHAM5_RCP26_mon_2006_2100.nc'
+   # Location of the processed, output EURO-CORDEX HIRHAM5 Downward shortwave radiation NetCDF data file
+   downshort_output = '/path/to/EURO-CORDEX/RCP26/HIRHAM5/concat/downshort_europe_HIRHAM5_RCP26_mon_2006_2100.nc'
 
    # Location of the reference ERA5_Land lat/long coordinate file used to regrid the rotated polar EURO-CORDEX data
    latlong_grid = '/path/to/ERA5_Land/era5_land_evap_targetgrid.nc' # Can be any ERA5_Land .nc file
 
     # regrid the input file
-    regrid(grid=latlong_grid, infile=downrad_input, outfile=downrad_output)
+    regrid(grid=latlong_grid, infile=downshort_input, outfile=downshort_output)
 
    # *** If needed *** Concatenate files and save single NetCDF file
-   ## filepath_in = "/path/to/EURO-CORDEX/RCP26/HIRHAM5/downrad_mon/" # Change path name to correct RCP and MODEL
-   ## filenames = glob.glob(f"{filepath_in}downrad_HIRHAM5_RCP26_*.nc") # Change filenames to correct MODEL and RCP
-   ## concatenate_input_files(files=filenames, file_conc=precip_output)
+   ## filepath_in = "/path/to/EURO-CORDEX/RCP26/HIRHAM5/downshort_mon/" # Change path name to correct RCP and MODEL
+   ## filenames = glob.glob(f"{filepath_in}downshort_HIRHAM5_RCP26_*.nc") # Change filenames to correct MODEL and RCP
+   ## concatenate_input_files(files=filenames, file_conc=downshort_output)
 
     # Close datasets
-    downrad_output.close()
-    downrad_input.close()
+    downshort_output.close()
+    downshort_input.close()
 
 if __name__ == '__main__':
     main()
