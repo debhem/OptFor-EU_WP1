@@ -17,6 +17,9 @@ __Satellite-Data:__     Dr Jasdeep Anand and Dr Rocio Barrio Guillo University o
 __Date of code release:__     31st January 2025
 #
 
+Zenodo DOI link: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14789833.svg)](https://doi.org/10.5281/zenodo.14789833)
+#
+
 ### Code sets:
 
 __Historic-Data:__     See https://github.com/debhem/OptFor-EU_WP1/blob/main/Historic-Data/README_Historic-Data.md for details on each code file for downloading and processing the historic CERRA data.
