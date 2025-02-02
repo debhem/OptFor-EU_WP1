@@ -23,4 +23,4 @@ __Historic-Data:__     See https://github.com/debhem/OptFor-EU_WP1/blob/main/His
 
 __Projection-Data:__     See https://github.com/debhem/OptFor-EU_WP1/blob/main/Projection-Data/README_Projection-Data.md for details on each code file for processing the future projection data from EURO-CORDEX Regional Climate Model future scenario runs. Guidance on downloading the required EURO-CORDEX future scenario data are provided in https://github.com/debhem/OptFor-EU_WP1/blob/main/Projection-Data/Download_Instructions.md.
 
-__Satellite-Data:__     See https://github.com/debhem/OptFor-EU_WP1/blob/main/Satellite-Data/README_Satellite-Data.md for details on each code file for downloading and processing the various satellite data used in this project. 
+__Satellite-Data:__     See https://github.com/debhem/OptFor-EU_WP1/blob/main/Satellite-Data/README_Satellite-Data.md for details on each code file for downloading and processing the various satellite data used in this project.
