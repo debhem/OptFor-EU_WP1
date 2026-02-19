@@ -1,10 +1,10 @@
 __author__ = "Dr. Jasdeep S. Anand, Dr. Rocio Barrio Guillo"
 __credits__ = ["Dr. Jasdeep S. Anand", "Dr. Rocio Barrio Guillo", "Dr. Darren Ghent", ]
-__other_citations__ = "Ghent, D.; Veal, K.; Perry, M. (2022): ESA Land Surface Temperature Climate Change Initiative (LST_cci): Monthly land surface temperature from MODIS (Moderate resolution Infra-red Spectroradiometer) on Terra, level 3 collated (L3C) global product (2000-2018), version 3.00. NERC EDS Centre for Environmental Data Analysis, 28 June 2022. doi:10.5285/32d7bc64c7b740e9ad7a43589ab91592. https://dx.doi.org/10.5285/32d7bc64c7b740e9ad7a43589ab91592"
+__other_citations__ = "Ghent, D.; Veal, K.; Perry, M. (2025): ESA Land Surface Temperature Climate Change Initiative (LST_cci): Daily land surface temperature from MODIS (Moderate resolution Infra-red Spectroradiometer) on Terra, level 3 collated (L3C) global product (2000-2021), version 4.00. NERC EDS Centre for Environmental Data Analysis, 03 December 2025. doi:10.5285/d56a6215ce394ddd8dff6bea5dbb0780. https://dx.doi.org/10.5285/d56a6215ce394ddd8dff6bea5dbb0780"
 __version__ = "1"
 __description__ = "Produces EFMI #17.6 Mean monthly land surface temperature. Subsets to the EURO CORDEX region domain and gets LST monthly mean by averaging daily day-time data and daily night-time and then taking the mean of day-time and night-time monthly averages."
-__inputs__ = "ESA-CCI MODIS Terra dataset, at 1km resolution, daily for 2000 to 2018, with units of Kelvin, K. The data was already downloaded in a JASMIN server from the CEDA Archive."
-__outputs__ = "Files named rs_veg_europe_lst_none_mon_2000_2018_v1_esacci.nc, at 1km resolution, monthly mean from March 2000 to December 2018, in Kelvin."
+__inputs__ = "ESA-CCI MODIS Terra dataset, at 1km resolution, daily for 2000 to 2021, with units of Kelvin, K. The data was already downloaded in a JASMIN server from the CEDA Archive."
+__outputs__ = "Files named rs_veg_europe_lst_none_mon_2000_2021_v1_esacci.nc, at 1km resolution, monthly mean from March 2000 to December 2021, in Kelvin."
 
 from glob import glob
 from pathlib import Path
