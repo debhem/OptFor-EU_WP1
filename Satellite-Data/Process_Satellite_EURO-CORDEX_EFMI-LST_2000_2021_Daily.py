@@ -111,5 +111,16 @@ lst_mon_data.attrs['Time_averaging'] = 'Monthly'
 lst_mon_data.attrs['Spatial_extent'] = 'Europe'
 lst_mon_data.attrs['Coordinate_system'] = 'EPSG:4326'
 lst_mon_data.attrs['Author_names'] = 'Dr. Rocio Barrio Guillo, Dr. Jasdeep S. Anand'
+
+# Compress to make it easier to upload and use
+encoding = {
+    "lst": {
+        "zlib": True,
+        "complevel": 4,
+        "dtype": "float32",
+        "chunksizes": (1, 500, 500)
+    }
+}
+
 # Save as netcdf
-lst_mon_data.to_netcdf(f'{out_data_topdir}/{lst_out_filename}', format='NETCDF4')
+lst_mon_data.to_netcdf(f'{out_data_topdir}/{lst_out_filename}', , encoding=encoding)
