@@ -124,3 +124,13 @@ __Inputs__: ESA-CCI MODIS Terra dataset, at 1km resolution, daily for 2000 to 20
 
 __Outputs__: Files named rs_veg_europe_lst_none_mon_2000_2018_v1_esacci.nc, at 1km resolution, monthly mean from March 2000 to December 2018, in Kelvin
 ##
+
+__Filename__: Process_Satellite_EURO-CORDEX_EFMI-DisturbanceWindandInsects_1985_2023_Events.py
+
+__Description__: Produces EFMI EFMI #5.1 Forest area with damage caused by insects and diseases AND #6.1 Forest area with damage caused by severe weather events
+
+__Inputs__: Disturbance agent layer mosaic for Europe, at ~50m resolution, annual for 1985-2023, unitless [presence or absence of disturban agents within cell]. Already within the EURO CORDEX region domain
+
+__Outputs__: Files named rs_veg_europe_disturbance_none_ann_1985_2023_v1_efda.nc, at ~50m resolution, annual for 1985-2023, with data for undisturbed (0) or disturbed (1) by wind and/or bark beetle complex in the cell
+
+
