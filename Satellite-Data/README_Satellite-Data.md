@@ -122,7 +122,7 @@ __Description__: Produces EFMI #17.6 Mean monthly land surface temperature. Subs
 
 __Inputs__: ESA-CCI MODIS Terra dataset, at 1km resolution, daily for 2000 to 2018, with units of Kelvin, K. The data was already downloaded in a JASMIN server from the CEDA Archive
 
-__Outputs__: Files named rs_veg_europe_lst_none_mon_2000_2018_v1_esacci.nc, at 1km resolution, monthly mean from March 2000 to December 2018, in Kelvin
+__Outputs__: Files named rs_veg_europe_lst_none_mon_2000_2021_v1_esacci.nc, at 1km resolution, monthly mean from March 2000 to December 2021, in Kelvin
 ##
 
 __Filename__: Process_Satellite_EURO-CORDEX_EFMI-DisturbanceWindandInsects_1985_2023_Events.py
