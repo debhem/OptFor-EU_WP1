@@ -120,7 +120,7 @@ __Filename__: Process_Satellite_EURO-CORDEX_EFMI-LST_2000_2021_Daily.py
 
 __Description__: Produces EFMI #17.6 Mean monthly land surface temperature. Subsets to the EURO CORDEX region domain and gets LST monthly mean by averaging daily day-time data and daily night-time and then taking the mean of day-time and night-time monthly averages
 
-__Inputs__: ESA-CCI MODIS Terra dataset, at 1km resolution, daily for 2000 to 2018, with units of Kelvin, K. The data was already downloaded in a JASMIN server from the CEDA Archive
+__Inputs__: ESA-CCI MODIS Terra dataset, at 1km resolution, daily for 2000 to 2021, with units of Kelvin, K. The data was already downloaded in a JASMIN server from the CEDA Archive
 
 __Outputs__: Files named rs_veg_europe_lst_none_mon_2000_2021_v1_esacci.nc, at 1km resolution, monthly mean from March 2000 to December 2021, in Kelvin
 ##
